@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 
 import Container from './components/container'
-import store from './redux/store/index'
+import store from './redux/store'
 
 
 
