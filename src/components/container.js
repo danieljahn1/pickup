@@ -18,8 +18,7 @@ class Container extends Component {
                 name: 'Andrew Anderson',
                 dob: '',
                 gender: 'Male',
-                city: 'Huntington Beach',
-                state: 'CA',
+                zip: '92689',
                 email: 'aanderson@email.com',
                 password: 'abc123',
             },{
@@ -27,8 +26,7 @@ class Container extends Component {
                 name: 'Lewis Aguilar',
                 dob: '',
                 gender: 'Male',
-                city: 'Anaheim',
-                state: 'CA',
+                zip: '92868',
                 email: 'laguilar@email.com',
                 password: 'abc123',
             },{
@@ -36,8 +34,7 @@ class Container extends Component {
                 name: 'Eric Masinas',
                 dob: '',
                 gender: 'Male',
-                city: 'Cypress',
-                state: 'CA',
+                zip: '91505',
                 email: 'emasinas@email.com',
                 password: 'abc123',
             },{
@@ -45,8 +42,7 @@ class Container extends Component {
                 name: 'Daniel Ahn',
                 dob: '',
                 gender: 'Male',
-                city: 'Santa Ana',
-                state: 'CA',
+                zip: '92804',
                 email: 'dahn@email.com',
                 password: 'abc123',
             }]
@@ -60,8 +56,7 @@ class Container extends Component {
             name: user.addName,
             dob: user.addDob,
             gender: user.addGender,
-            city: user.addCity,
-            state: user.addState,
+            zip: user.addZip,
             email: user.addEmail,
             password: user.addPassword,
         })
@@ -85,7 +80,7 @@ class Container extends Component {
                     <NavMenu />
                     <Title title="Pickup App" />
                     {/* <SignIn signInClick={this.signIn.bind(this)}/> */}
-                    {/* <SignUp signUpClick={this.signUp.bind(this)}/> */}
+                    <SignUp signUpClick={this.signUp.bind(this)}/>
 
                 </div>
 

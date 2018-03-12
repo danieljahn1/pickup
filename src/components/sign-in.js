@@ -5,20 +5,22 @@ class SignIn extends Component {
     constructor(props) {
         super(props)
 
-        this.state = [{
+        this.state = {
             verifyEmail: '',
             verifyPassword: '',
-        }]
+        }
     }
     
     submitAndClear() {
-        this.setState(
-            this.props.signInClick.bind(this, this.state)
-        )
-        this.setState({
-            verifyEmail: '',
-            verifyPassword: '',
-        })
+        if (this.state.verifyEmail != '' && this.state.verifyPassword != '') {
+            this.setState(
+                this.props.signInClick.bind(this, this.state)
+            )
+            this.setState({
+                verifyEmail: '',
+                verifyPassword: '',
+            })
+        }
     }
 
 
