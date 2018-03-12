@@ -45,7 +45,10 @@ const initialState = {
 }
 
 const rootReducer = (state=initialState, action) => {
-
+    if (action.type=="ADD_EVENT") {
+        name: action.name;
+        copy: action.copy
+    }
     return state;
 }
 
