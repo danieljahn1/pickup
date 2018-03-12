@@ -48,3 +48,35 @@
   .close:hover { 
     background: #f0ad4e; 
   }
+
+
+  /* EM styles */
+  .eventCard  {
+    margin: 5px;
+    background-color: #ededed;
+    border: 1px solid black;
+    border-radius: 10px;
+
+  }
+
+  .innerEventCard {
+    padding: 5px 10px;
+  }
+
+  .btnPadding {
+    margin-left: 5px;
+  }
+
+  p.message {
+    margin-bottom: 15px;
+  }
+
+  p.detailsSubheader {
+    font-weight: bold;
+  }
+
+  #selectFilter {
+    margin-left: 15px;
+  }
+
+  /* End of EM styles */
