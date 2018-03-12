@@ -3,14 +3,14 @@ import React, { Component } from 'react'
 
 class Home extends Component {
     constructor(props) {
-        super(props)
+        super(props);
         // this.state = { }
     }
 
-    render() {
-        return (
+    render() { 
+        return ( 
             <div className="col-md-12">
-                
+            
             </div>
         )
     }
