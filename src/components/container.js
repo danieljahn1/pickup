@@ -8,6 +8,7 @@ import SignIn from './sign-in'
 import SignUp from './sign-up'
 import Home from './home'
 
+import EventCreate from './event-create'
 import EventList from './event-list'
 import Event from './event'
 
@@ -104,6 +105,7 @@ class Container extends Component {
                     <Switch>
                         <Route exact path='/' component={ Home } />
                         <Route path='/signup' render={() => <SignUp signUpClick={this.signUp.bind(this)} />  } />
+                        <Route path='/createevent' component= { EventCreate } />
                         <Route path='/viewevents' component= { EventList } />
                         <Route path='/eventdetails/:eventId' component={ Event } />
                     </Switch>
