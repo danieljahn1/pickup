@@ -6,6 +6,13 @@ import Title from './title'
 import NavMenu from './navmenu'
 import SignIn from './sign-in'
 import SignUp from './sign-up'
+import Home from './home'
+
+import EventCreate from './event-create'
+import EventList from './event-list'
+import Event from './event'
+
+import { Link, Switch, Route } from 'react-router-dom'
 
 
 class Container extends Component {
@@ -76,6 +83,7 @@ class Container extends Component {
     render() {
         return(
             <div>
+                
                 <div className="container-fluid">
                     <NavMenu />
                     <Title title="Pickup App" />
@@ -89,6 +97,14 @@ class Container extends Component {
                     {/* Check out Pickup, the app that allows you to find a game near you. */}
 
                     {/* <TestRedux /> */}
+                    <Switch>
+                        <Route exact path='/' component={ Home } />
+                        <Route path='/signup' render={() => <SignUp signUpClick={this.signUp.bind(this)} />  } />
+                        <Route path='/createevent' component= { EventCreate } />
+                        <Route path='/viewevents' component= { EventList } />
+                        <Route path='/eventdetails/:eventId' component={ Event } />
+                    </Switch>
+                    {/* <EventList /> */}
                 </div>
 
 
