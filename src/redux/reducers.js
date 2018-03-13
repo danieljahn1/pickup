@@ -2,7 +2,7 @@ import uniqid from 'uniqid'
 
 const initialState = {
     usersArr: [{
-        id: uniqid(),
+        id: 10,
         name: 'Andrew Anderson',
         dob: '',
         gender: 'Male',
@@ -10,7 +10,7 @@ const initialState = {
         email: 'aanderson@email.com',
         password: 'abc123',
     },{
-        id: uniqid(),
+        id: 11,
         name: 'Lewis Aguilar',
         dob: '',
         gender: 'Male',
@@ -18,7 +18,7 @@ const initialState = {
         email: 'laguilar@email.com',
         password: 'abc123',
     },{
-        id: uniqid(),
+        id: 12,
         name: 'Eric Masinas',
         dob: '',
         gender: 'Male',
@@ -26,7 +26,7 @@ const initialState = {
         email: 'emasinas@email.com',
         password: 'abc123',
     },{
-        id: uniqid(),
+        id: 13,
         name: 'Daniel Ahn',
         dob: '',
         gender: 'Male',
@@ -43,7 +43,7 @@ const initialState = {
     loadedEventsJsonFile: false,
     events: [
         {
-            id: uniqid(),
+            id: 1,
             event: "Pickup basketball",
             date: "3/19/2018",
             address: "Quail Hill Community Park",
@@ -54,7 +54,7 @@ const initialState = {
             message: "Come out to play ball. Any levels"
         },
         {
-            id: uniqid(),
+            id: 2,
             event: "Flag football tournament",
             date: "3/18/2018",
             address: "Orange County Great Park",
@@ -65,7 +65,7 @@ const initialState = {
             message: "All individuals and teams welcome to play and enter into a tournament. All skill levels. Individual signups will be placed onto a team."
         },
         {
-            id: uniqid(),
+            id: 3,
             event: "Golf money game",
             date: "3/31/2018",
             address: "Oak Creek Golf Club",
