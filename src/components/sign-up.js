@@ -10,26 +10,29 @@ class SignUp extends Component {
             addName: '',
             addDob: '',
             addGender: '',
-            addCity: '',
-            addState: '',
+            addZip: '',
             addEmail: '',
             addPassword: '',
         }
     }
 
-    submitAndClear() {
-        this.setState(
-            this.props.signUpClick.bind(this, this.state)
-        )
-        this.setState({
-            addName: '',
-            addDob: '',
-            addGender: '',
-            addCity: '',
-            addState: '',
-            addEmail: '',
-            addPassword: '',
-        })
+    submitAndClear(e) {
+        console.log(this.state.addName);
+        console.log(this.state.addEmail);
+        
+        if (this.state.addname != '' && this.state.addZip != '' && this.state.addEmail != '' && this.state.addPassword != '') {
+            this.setState(
+                this.props.signUpClick.bind(this, this.state)
+            )
+            this.setState({
+                addName: '',
+                addDob: '',
+                addGender: '',
+                addZip: '',
+                addEmail: '',
+                addPassword: '',
+            })
+        }
     }
 
     render() {
@@ -58,13 +61,8 @@ class SignUp extends Component {
                     </div>
 
                     <div className="form-group">
-                        {/* <label htmlFor="city">City</label> */}
-                        <input type="text" className="form-control" id="city" autoComplete="city" placeholder="City" value={this.state.addCity} onChange={(e)=> {this.setState({addCity: e.target.value})}}/>
-                    </div>
-
-                    <div className="form-group">
-                        {/* <label htmlFor="state">State</label> */}
-                        <input type="text" className="form-control" id="state" autoComplete="state" placeholder="State" value={this.state.addState} onChange={(e)=> {this.setState({addState: e.target.value})}}/>
+                        {/* <label htmlFor="zip">Zip Code</label> */}
+                        <input type="text" pattern="[0-9]{5}" className="form-control" id="zip" autoComplete="postal-code" placeholder="Zip Code" value={this.state.addZip} onChange={(e)=> {this.setState({addZip: e.target.value})}} required/>
                     </div>
 
                     <div className="form-group">
@@ -73,13 +71,13 @@ class SignUp extends Component {
                     </div>
 
                     <div className="form-group">
-                        {/* <label htmlFor="password">Password</label> */}
+                        {/* <label htmlFor="newPassword">Password</label> */}
                         <input type="password" className="form-control" id="newPassword" autoComplete="new-password" placeholder="Password" value={this.state.addPassword} onChange={(e)=> {this.setState({addPassword: e.target.value})}} required/>
-                        <small id="newPasswordHelp" className="form-text text-muted">Must be 8-20 characters long.</small>
+                        <small id="newPasswordHelp" className="form-text text-muted">Must be at least 8 characters long.</small>
                     </div>
 
-                    <small className="form-text text-muted">By Signing Up, you agree to our Terms of Use and Privacy Policy</small>
-                    <input type="submit" className="btn btn-warning btn-block submit-button" value="Sign Up" onClick={this.submitAndClear.bind(this)}/>
+                    <small className="form-text text-muted">By Signing Up, you agree to our <a href="#">Terms of Use</a> and <a href="#">Privacy Policy.</a></small>
+                    <button type="submit" className="btn btn-warning btn-block" onClick={this.submitAndClear.bind(this)}>Sign Up</button>
                 </form>
             </div>
         )
