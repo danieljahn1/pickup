@@ -1,1 +1,1 @@
-export const eventCreate = url => ({type: 'EVENT_CREATE', payload: url})
+export const eventCreate = newEvent => ({type: 'EVENT_CREATE', payload: newEvent})
