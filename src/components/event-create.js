@@ -27,7 +27,7 @@ class EventCreate extends Component {
             event: this.state.event,
             date: this.state.date,
             address: this.state.address,
-            
+
             zip: this.state.zip,
             category: this.state.category,
             minPlayersNeeded: this.state.minPlayersNeeded,
@@ -45,7 +45,7 @@ class EventCreate extends Component {
                 <form className="col-md-6">
                     <div className="form-group">
                         {/* <label htmlFor="name">Event</label> */}
-                        <input type="text" className="form-control" id="event" autoComplete="event" placeholder="Type of Event" value={this.state.event} onChange={(e) => { this.setState({ event: e.target.value }) }} />
+                        <input type="text" className="form-control" id="event" autoComplete="event" placeholder="Type of Event" value={this.state.event} onChange={(e) => { this.setState({ event: e.target.value }) }}required />
                     </div>
 
                     <div className="form-group">
@@ -57,11 +57,6 @@ class EventCreate extends Component {
                         {/* <label htmlFor="gender">Address</label> */}
                         <input type="text" className="form-control" id="address" autoComplete="address" placeholder="Address" value={this.state.address} onChange={(e) => { this.setState({ address: e.target.value }) }} />
                     </div>
-
-                    {/* <div className="form-group">
-                        <label htmlFor="city">City</label>
-                        <input type="text" className="form-control" id="city" autoComplete="city" placeholder="City" value={this.state.city} onChange={(e) => { this.setState({ city: e.target.value }) }} />
-                    </div> */}
 
                     <div className="form-group">
                         {/* <label htmlFor="state">Zip</label> */}
