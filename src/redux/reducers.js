@@ -34,15 +34,16 @@ const initialState = {
         email: 'dahn@email.com',
         password: 'abc123',
     }],
-    testRedux: [
-        {
-            name: "Test content",
-            copy: "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
-        }
-    ],
+    // testRedux: [
+    //     {
+    //         name: "Test content",
+    //         copy: "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+    //     }
+    // ],
+    loadedEventsJsonFile: false,
     events: [
         {
-            id: 10000,
+            id: uniqid(),
             event: "Pickup basketball",
             date: "3/19/2018",
             address: "Quail Hill Community Park",
@@ -53,7 +54,7 @@ const initialState = {
             message: "Come out to play ball. Any levels"	
         },
         {
-            id: 10001,
+            id: uniqid(),
             event: "Flag football tournament",
             date: "3/18/2018",
             address: "Orange County Great Park",
@@ -64,7 +65,7 @@ const initialState = {
             message: "All individuals and teams welcome to play and enter into a tournament. All skill levels. Individual signups will be placed onto a team."            
         },
         {
-            id: 10002,
+            id: uniqid(),
             event: "Golf money game",
             date: "3/31/2018",
             address: "Oak Creek Golf Club",
@@ -87,6 +88,23 @@ const rootReducer = (state=initialState, action) => {
             usersArr: state.usersArr.concat(action.payload)
         }
     }
+
+    if (action.type == "LOAD_EVENTS") {
+        // Load the events from the JSON file
+        state = {
+            ... state,
+            events: action.payload
+        }
+    }
+
+    if (action.type == "LOAD_EVENTS_FLAG") {
+        state = {
+            ... state,
+            loadedEventsJsonFile: action.payload
+        }
+    }
+
+
     return state;
 }
 

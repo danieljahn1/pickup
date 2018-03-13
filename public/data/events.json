@@ -1,0 +1,26 @@
+{
+"events" : [
+	{
+	"id": "90000",
+	"event": "Soccer tournament",
+	"date": "3/31/2018",
+	"address": "University Community Park",
+	"zip": "92612",
+	"category": "Soccer",
+	"minPlayersNeeded": 12,
+	"maxPlayersNeeded": 25,
+	"message": "All levels of experience welcome to join our fun soccer tournament."
+	},
+	{
+	"id": "90001",
+	"event": "Beer Pong bro",
+	"date": "3/31/2018",
+	"address": "The Auld Dubliner",
+	"zip": "92782",
+	"category": "Beer Pong",
+	"minPlayersNeeded": 10,
+	"maxPlayersNeeded": 30,
+	"message": "Beer pong bro."
+	}
+]
+}

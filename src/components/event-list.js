@@ -3,6 +3,10 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Link, Switch, Route } from 'react-router-dom'
 
+import axios from 'axios'
+import {loadOtherEvents} from '../redux/actions'
+import {updateEventsLoadFlag} from '../redux/actions'
+
 class EventList extends Component {
     constructor(props) {
         super(props);
@@ -12,13 +16,42 @@ class EventList extends Component {
         }
     }
 
+    componentDidMount() {
+        // Get events from the local json file
+
+        if (this.props.loadedEventsJsonFile == false) {
+        axios.get('http://localhost:8080/data/events.json')
+            .then(response => {
+                // console.log(response.data.events);
+
+                // Add the events from the json file into the current array in redux state
+                var loadEventsArr = this.props.events.slice();
+
+                // Loop through the json file and push the object into the array
+                for (let i = 0; i < response.data.events.length; i++) {
+                    // console.log(response.data.events[i]);
+                    loadEventsArr.push(response.data.events[i]);
+                }
+                
+                // console.log(loadEventsArr);
+                
+                this.props.loadEvents(loadEventsArr);
+
+                // set flag to true so the json data doesn't load more than once
+                this.props.updateFlag(true);
+                
+            })
+        }
+
+    }
+
     render() { 
         return (
             <div className="col-md-12 container">
                 <div className="col-md-12 container pull-right">
                     <label htmlFor="selectFilter">Narrow my results:</label>
                     <select name="filterResults" id="selectFilter" onChange={ (e) => this.setState({ filterBy: e.target.value }) }>
-                        <option value="" disabled selected="selected" hidden>Please Choose...</option>
+                        <option value="" disabled defaultValue hidden>Please Choose...</option>
                         <option>All Events</option>
                         <option>Football</option>
                         <option>Baseball</option>
@@ -81,9 +114,17 @@ class EventList extends Component {
 
 const MapStateToProps = state => {
     return {
-        events: state.events
+        events: state.events,
+        loadedEventsJsonFile: state.loadedEventsJsonFile
+    }
+}
+
+const MapDispatchToProps = dispatch => {
+    return {
+        loadEvents: events => dispatch(loadOtherEvents(events)),
+        updateFlag: flag => dispatch(updateEventsLoadFlag(flag))
     }
 }
 
 
-export default connect(MapStateToProps)(EventList)
+export default connect(MapStateToProps,MapDispatchToProps)(EventList)
