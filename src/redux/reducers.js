@@ -54,6 +54,10 @@ const initialState = {
         {
             userId: 11,
             eventID: 90002
+        },
+        {
+            userId: 13,
+            eventID: 2
         }
     ],
     // testRedux: [

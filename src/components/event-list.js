@@ -84,7 +84,7 @@ class EventList extends Component {
         
         if (this.state.filterBy != "" && this.state.filterBy != "All Events") {
             // Filter the array by the selected event category
-            eventsArr = eventsArr.filter( (item) => item.category == this.state.filterBy  );
+            eventsArr = eventsArr.filter( (item) => item.category == this.state.filterBy  );  
             // console.log("filter by " + this.state.filterBy);
         }
         
@@ -107,7 +107,7 @@ class EventList extends Component {
                 </div>
                 <div className="row innerEventCard">                                
                     <p className="detailsSubheader">Status: </p>
-                    { this.getEventStatus(item.id) }
+                    { this.getEventStatus(item.id) }  {item.status}
                 </div>
                 <div className="row innerEventCard">
                     <Link to={'/eventdetails/' + item.id}><button id="btnMoreInfo" className="btn btn-success">More Info</button></Link>
@@ -129,16 +129,16 @@ class EventList extends Component {
                 eventIDCounter += 1;
                 // console.log(this.props.participants[i]);
             }            
-        }
+        }        
 
         // Set the event's status. If eventIDCounter <= max number of players, status is open
         let status = "Closed";
         let eventCopy =  this.props.events.filter(item => item.id == eventID );
         
         if (eventIDCounter < eventCopy[0].maxPlayersNeeded) {
-            console.log("Number of participants: " + eventIDCounter);
+            // console.log("Number of participants: " + eventIDCounter);
             status = "Open";
-        }
+        }        
 
         // console.log("Number of participants: " + eventIDCounter);
         return status;
