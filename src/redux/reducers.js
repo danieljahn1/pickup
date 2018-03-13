@@ -34,6 +34,28 @@ const initialState = {
         email: 'dahn@email.com',
         password: 'abc123',
     }],
+    participants: [
+        {
+            userId: 10,
+            eventID: 1
+        },
+        {
+            userId: 11,
+            eventID: 1
+        },
+        {
+            userId: 12,
+            eventID: 3
+        },
+        {
+            userId: 12,
+            eventID: 90002
+        },
+        {
+            userId: 11,
+            eventID: 90002
+        }
+    ],
     // testRedux: [
     //     {
     //         name: "Test content",
@@ -72,7 +94,7 @@ const initialState = {
             zip: "92618",
             category: "Golf",
             minPlayersNeeded: 1,
-            maxPlayersNeeded: 2,
+            maxPlayersNeeded: 1,
             message: "Let's play skins for some minor money. Low to mid level handicaps."
         }
     ]

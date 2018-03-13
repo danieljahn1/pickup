@@ -87,6 +87,11 @@ class EventList extends Component {
             eventsArr = eventsArr.filter( (item) => item.category == this.state.filterBy  );
             // console.log("filter by " + this.state.filterBy);
         }
+        
+        if (eventsArr.length == 0) {
+            // No events found. Display a message
+            return <div className="col-md-8 eventCard">No events found.</div>
+        }
 
         return eventsArr.map( (item, index) =>
             <div key={ index } className="col-md-8 eventCard">
@@ -100,6 +105,10 @@ class EventList extends Component {
                     <p>{ item.address }</p>
                     <p>{ item.zip }</p>
                 </div>
+                <div className="row innerEventCard">                                
+                    <p className="detailsSubheader">Status: </p>
+                    { this.getEventStatus(item.id) }
+                </div>
                 <div className="row innerEventCard">
                     <Link to={'/eventdetails/' + item.id}><button id="btnMoreInfo" className="btn btn-success">More Info</button></Link>
                     {/* <button id="btnJoin" className="btn btn-info btnPadding">Join the Game</button> */}                    
@@ -109,12 +118,39 @@ class EventList extends Component {
         )
     }
 
+    getEventStatus(eventID) {
+        // Use the eventID to get the participants
+        // If the number of participants is less than the number of max players, then set status to Open, otherwise it is closed
+        
+        let eventIDCounter = 0;
+        for (let i = 0; i < this.props.participants.length; i++) {
+            // If the participant's eventID matches, then tally up the eventIDCounter
+            if (this.props.participants[i].eventID == eventID) {
+                eventIDCounter += 1;
+                // console.log(this.props.participants[i]);
+            }            
+        }
+
+        // Set the event's status. If eventIDCounter <= max number of players, status is open
+        let status = "Closed";
+        let eventCopy =  this.props.events.filter(item => item.id == eventID );
+        
+        if (eventIDCounter < eventCopy[0].maxPlayersNeeded) {
+            console.log("Number of participants: " + eventIDCounter);
+            status = "Open";
+        }
+
+        // console.log("Number of participants: " + eventIDCounter);
+        return status;
+        
+    }
 
 }
 
 const MapStateToProps = state => {
     return {
         events: state.events,
+        participants: state.participants,
         loadedEventsJsonFile: state.loadedEventsJsonFile
     }
 }

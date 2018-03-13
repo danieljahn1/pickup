@@ -21,6 +21,17 @@
 	"minPlayersNeeded": 10,
 	"maxPlayersNeeded": 30,
 	"message": "Beer pong bro."
+	},
+	{
+	"id": "90002",
+	"event": "Hockey team needs players",
+	"date": "4/1/2018",
+	"address": "Anaheim Ice",
+	"zip": "99999",
+	"category": "Hockey",
+	"minPlayersNeeded": 2,
+	"maxPlayersNeeded": 2,
+	"message": "Need two players at most for upper level gold team."
 	}
 ]
 }
