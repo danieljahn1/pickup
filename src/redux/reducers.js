@@ -1,6 +1,39 @@
 import uniqid from 'uniqid'
 
 const initialState = {
+    usersArr: [{
+        id: uniqid(),
+        name: 'Andrew Anderson',
+        dob: '',
+        gender: 'Male',
+        zip: '92689',
+        email: 'aanderson@email.com',
+        password: 'abc123',
+    },{
+        id: uniqid(),
+        name: 'Lewis Aguilar',
+        dob: '',
+        gender: 'Male',
+        zip: '92868',
+        email: 'laguilar@email.com',
+        password: 'abc123',
+    },{
+        id: uniqid(),
+        name: 'Eric Masinas',
+        dob: '',
+        gender: 'Male',
+        zip: '91505',
+        email: 'emasinas@email.com',
+        password: 'abc123',
+    },{
+        id: uniqid(),
+        name: 'Daniel Ahn',
+        dob: '',
+        gender: 'Male',
+        zip: '92804',
+        email: 'dahn@email.com',
+        password: 'abc123',
+    }],
     testRedux: [
         {
             name: "Test content",
@@ -48,6 +81,11 @@ const rootReducer = (state=initialState, action) => {
     if (action.type=="ADD_EVENT") {
         name: action.name;
         copy: action.copy
+    }
+    if (action.type=="USER_CREATE") {
+        state = {
+            usersArr: state.usersArr.concat(action.payload)
+        }
     }
     return state;
 }
