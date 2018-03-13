@@ -1,4 +1,4 @@
-export const eventCreate = url => ({type: 'EVENT_CREATE', payload: url})
+export const eventCreate = newEvent => ({type: 'EVENT_CREATE', payload: newEvent})
 export const userCreate = newUser => ({type: 'USER_CREATE', payload: newUser})
 
 export const loadOtherEvents = events => ({ type: 'LOAD_EVENTS', payload: events  })

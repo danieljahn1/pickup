@@ -51,7 +51,7 @@ const initialState = {
             category: "Basketball",
             minPlayersNeeded: 4,
             maxPlayersNeeded: 10,
-            message: "Come out to play ball. Any levels"	
+            message: "Come out to play ball. Any levels"
         },
         {
             id: uniqid(),
@@ -62,7 +62,7 @@ const initialState = {
             category: "Football",
             minPlayersNeeded: 20,
             maxPlayersNeeded: 80,
-            message: "All individuals and teams welcome to play and enter into a tournament. All skill levels. Individual signups will be placed onto a team."            
+            message: "All individuals and teams welcome to play and enter into a tournament. All skill levels. Individual signups will be placed onto a team."
         },
         {
             id: uniqid(),
@@ -73,15 +73,16 @@ const initialState = {
             category: "Golf",
             minPlayersNeeded: 1,
             maxPlayersNeeded: 2,
-            message: "Let's play skins for some minor money. Low to mid level handicaps."            
+            message: "Let's play skins for some minor money. Low to mid level handicaps."
         }
     ]
 }
 
-const rootReducer = (state=initialState, action) => {
-    if (action.type=="ADD_EVENT") {
-        name: action.name;
-        copy: action.copy
+const rootReducer = (state = initialState, action) => {
+    if (action.type == "EVENT_CREATE") {
+        state = {
+        }
+
     }
     if (action.type=="USER_CREATE") {
         state = {
