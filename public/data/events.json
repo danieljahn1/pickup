@@ -1,0 +1,48 @@
+{
+"events" : [
+	{
+	"id": "90000",
+	"event": "Soccer tournament",
+	"date": "3/31/2018",
+	"address": "University Community Park",
+	"zip": "92612",
+	"category": "Soccer",
+	"minPlayersNeeded": 12,
+	"maxPlayersNeeded": 25,
+	"message": "All levels of experience welcome to join our fun soccer tournament."
+	},
+	{
+	"id": "90001",
+	"event": "Beer Pong bro",
+	"date": "3/31/2018",
+	"address": "The Auld Dubliner",
+	"zip": "92782",
+	"category": "Beer Pong",
+	"minPlayersNeeded": 10,
+	"maxPlayersNeeded": 30,
+	"message": "Beer pong bro."
+	},
+	{
+	"id": "90002",
+	"event": "Hockey team needs players",
+	"date": "4/1/2018",
+	"address": "Anaheim Ice",
+	"zip": "99999",
+	"category": "Hockey",
+	"minPlayersNeeded": 2,
+	"maxPlayersNeeded": 2,
+	"message": "Need two players at most for upper level gold team."
+	},
+	{
+	"id": "90003",
+	"event": "Walking club",
+	"date": "4/1/2018",
+	"address": "Irvine Lake",
+	"zip": "99999",
+	"category": "Walking",
+	"minPlayersNeeded": 1,
+	"maxPlayersNeeded": 4,
+	"message": "Looking to add a few members to our weekly walks near the lake."
+	}
+]
+}
