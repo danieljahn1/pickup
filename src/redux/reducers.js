@@ -1,6 +1,7 @@
 import uniqid from 'uniqid'
 
 const initialState = {
+    loggedInUser: [],
     usersArr: [{
         id: uniqid(),
         name: 'Andrew Anderson',
@@ -31,7 +32,7 @@ const initialState = {
         dob: '',
         gender: 'Male',
         zip: '92804',
-        email: 'dahn@email.com',
+        email: 'djahn.shop@outlook.com',
         password: 'abc123',
     }],
     testRedux: [
@@ -83,11 +84,20 @@ const rootReducer = (state = initialState, action) => {
         }
 
     }
-    if (action.type=="USER_CREATE") {
+    if (action.type == "USER_CREATE") {
         state = {
+            ...state,
             usersArr: state.usersArr.concat(action.payload)
         }
     }
+    if (action.type == "USER_AUTH") {
+        state = {
+            ...state,
+            loggedInUser: state.loggedInUser.splice(0,1,action.payload)
+        }
+    }
+
+
     return state;
 }
 
