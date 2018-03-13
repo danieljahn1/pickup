@@ -1,0 +1,35 @@
+[
+{
+	"id": 1000,
+	"name": "John Doe",
+	"dob": "",
+	"gender": "Male",
+	"zip": "90015",
+	"email": "person1@test.com",
+	"password": "password1"
+},
+{
+	"id": 1001,
+	"name": "Jane Doe",
+	"dob": "",
+	"gender": "Female",
+	"zip": "92602",
+	"email": "jd@email.com",
+	"password": "Password1"
+},
+{
+	"id": 1002,
+	"name": "Miles Davis",
+	"dob": "",
+	"gender": "Male",
+	"zip": "92602",
+	"email": "miles@email.com",
+	"password": "Trumpet"
+}
+
+
+
+
+
+
+]

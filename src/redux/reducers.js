@@ -2,7 +2,7 @@ import uniqid from 'uniqid'
 
 const initialState = {
     usersArr: [{
-        id: uniqid(),
+        id: 10,
         name: 'Andrew Anderson',
         dob: '',
         gender: 'Male',
@@ -10,7 +10,7 @@ const initialState = {
         email: 'aanderson@email.com',
         password: 'abc123',
     },{
-        id: uniqid(),
+        id: 11,
         name: 'Lewis Aguilar',
         dob: '',
         gender: 'Male',
@@ -18,7 +18,7 @@ const initialState = {
         email: 'laguilar@email.com',
         password: 'abc123',
     },{
-        id: uniqid(),
+        id: 12,
         name: 'Eric Masinas',
         dob: '',
         gender: 'Male',
@@ -26,7 +26,7 @@ const initialState = {
         email: 'emasinas@email.com',
         password: 'abc123',
     },{
-        id: uniqid(),
+        id: 13,
         name: 'Daniel Ahn',
         dob: '',
         gender: 'Male',
@@ -34,15 +34,38 @@ const initialState = {
         email: 'dahn@email.com',
         password: 'abc123',
     }],
-    testRedux: [
+    participants: [
         {
-            name: "Test content",
-            copy: "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+            userId: 10,
+            eventID: 1
+        },
+        {
+            userId: 11,
+            eventID: 1
+        },
+        {
+            userId: 12,
+            eventID: 3
+        },
+        {
+            userId: 12,
+            eventID: 90002
+        },
+        {
+            userId: 11,
+            eventID: 90002
         }
     ],
+    // testRedux: [
+    //     {
+    //         name: "Test content",
+    //         copy: "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+    //     }
+    // ],
+    loadedEventsJsonFile: false,
     events: [
         {
-            id: 10000,
+            id: 1,
             event: "Pickup basketball",
             date: "3/19/2018",
             address: "Quail Hill Community Park",
@@ -53,7 +76,7 @@ const initialState = {
             message: "Come out to play ball. Any levels"
         },
         {
-            id: 10001,
+            id: 2,
             event: "Flag football tournament",
             date: "3/18/2018",
             address: "Orange County Great Park",
@@ -64,14 +87,14 @@ const initialState = {
             message: "All individuals and teams welcome to play and enter into a tournament. All skill levels. Individual signups will be placed onto a team."
         },
         {
-            id: 10002,
+            id: 3,
             event: "Golf money game",
             date: "3/31/2018",
             address: "Oak Creek Golf Club",
             zip: "92618",
             category: "Golf",
             minPlayersNeeded: 1,
-            maxPlayersNeeded: 2,
+            maxPlayersNeeded: 1,
             message: "Let's play skins for some minor money. Low to mid level handicaps."
         }
     ]
@@ -91,6 +114,23 @@ const rootReducer = (state = initialState, action) => {
             usersArr: state.usersArr.concat(action.payload)
         }
     }
+
+    if (action.type == "LOAD_EVENTS") {
+        // Load the events from the JSON file
+        state = {
+            ... state,
+            events: action.payload
+        }
+    }
+
+    if (action.type == "LOAD_EVENTS_FLAG") {
+        state = {
+            ... state,
+            loadedEventsJsonFile: action.payload
+        }
+    }
+
+
     return state;
 }
 
