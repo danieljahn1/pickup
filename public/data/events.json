@@ -32,6 +32,17 @@
 	"minPlayersNeeded": 2,
 	"maxPlayersNeeded": 2,
 	"message": "Need two players at most for upper level gold team."
+	},
+	{
+	"id": "90003",
+	"event": "Walking club",
+	"date": "4/1/2018",
+	"address": "Irvine Lake",
+	"zip": "99999",
+	"category": "Walking",
+	"minPlayersNeeded": 1,
+	"maxPlayersNeeded": 4,
+	"message": "Looking to add a few members to our weekly walks near the lake."
 	}
 ]
 }

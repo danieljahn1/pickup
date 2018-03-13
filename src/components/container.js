@@ -5,7 +5,6 @@ import TestRedux from './testredux'
 import Title from './title'
 import NavMenu from './navmenu'
 import Home from './home'
-import SignIn from './sign-in'
 import SignUp from './sign-up'
 import Welcome from './welcome'
 
@@ -34,6 +33,7 @@ class Container extends Component {
                 <div className="container-fluid">
                     <NavMenu />
                     <Title title="Pickup App" />
+                    
                     {/* <SignIn signInClick={this.signIn.bind(this)}/> */}
                     {/* <SignUp /> */}
                     {/* <Welcome/> */}

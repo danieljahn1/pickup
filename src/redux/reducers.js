@@ -1,6 +1,7 @@
 import uniqid from 'uniqid'
 
 const initialState = {
+    loggedInUser: [],
     usersArr: [{
         id: 10,
         name: 'Andrew Anderson',
@@ -31,7 +32,7 @@ const initialState = {
         dob: '',
         gender: 'Male',
         zip: '92804',
-        email: 'dahn@email.com',
+        email: 'djahn.shop@outlook.com',
         password: 'abc123',
     }],
     participants: [
@@ -54,6 +55,10 @@ const initialState = {
         {
             userId: 11,
             eventID: 90002
+        },
+        {
+            userId: 13,
+            eventID: 2
         }
     ],
     // testRedux: [
@@ -108,13 +113,18 @@ const rootReducer = (state = initialState, action) => {
         }
 
     }
-    if (action.type=="USER_CREATE") {
+    if (action.type == "USER_CREATE") {
         state = {
             ...state,
             usersArr: state.usersArr.concat(action.payload)
         }
     }
-
+    if (action.type == "USER_AUTH") {
+        state = {
+            ...state,
+            loggedInUser: state.loggedInUser.splice(0,1,action.payload)
+        }
+    }
     if (action.type == "LOAD_EVENTS") {
         // Load the events from the JSON file
         state = {
@@ -122,15 +132,12 @@ const rootReducer = (state = initialState, action) => {
             events: action.payload
         }
     }
-
     if (action.type == "LOAD_EVENTS_FLAG") {
         state = {
             ... state,
             loadedEventsJsonFile: action.payload
         }
     }
-
-
     return state;
 }
 
