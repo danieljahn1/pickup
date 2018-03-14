@@ -52,21 +52,17 @@ class EventList extends Component {
                     <label htmlFor="selectFilter">Narrow my results:</label>
                     <select name="filterResults" id="selectFilter" onChange={ (e) => this.setState({ filterBy: e.target.value }) }>
                         <option value="" disabled defaultValue hidden>Please Choose...</option>
+                        <option>All Events</option>
+                        <option>Football</option>
+                        <option>Baseball</option>
                         <option>Basketball</option>
-                        <option>Beer Pong</option>
-                        <option>Cycling</option>
-                        <option>Flag Football</option>
-                        <option>Golf</option>
-                        <option>Hiking</option>
-                        <option>Hockey</option>
-                        <option>Kickball</option>
-                        <option>Tennis</option>
-                        <option>Ping Pong</option>
-                        <option>Running</option>
                         <option>Soccer</option>
-                        <option>Softball</option>
+                        <option>Kickball</option>
+                        <option>Golf</option>
+                        <option>Ping Pong</option>
+                        <option>Hockey</option>
                         <option>Tennis</option>
-                        <option>Walking</option>
+                        <option>Beer Pong</option>
                     </select>
                     {/* <button id="btnFilter" className="btn btn-primary btn-xs btnPadding" onClick={ this.filterResults }>Go</button> */}
                 </div>
@@ -155,7 +151,8 @@ const MapStateToProps = state => {
     return {
         events: state.events,
         participants: state.participants,
-        loadedEventsJsonFile: state.loadedEventsJsonFile
+        loadedEventsJsonFile: state.loadedEventsJsonFile,
+        loggedInUser: state.loggedInUser
     }
 }
 
