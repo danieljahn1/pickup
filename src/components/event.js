@@ -14,9 +14,9 @@ class Home extends Component {
   }
 
   render() {
-    if (this.props.loggedInUser.length == 0) {
-      return <Redirect to="/signup" />
-    }
+    // if (this.props.loggedInUser.length == 0) {
+    //   return <Redirect to="/signup" />
+    // }
     return (
       <div className="col-md-12 container">
         {// console.log(this.props.events.filter((item) => item.id == this.props.match.params.eventId))
@@ -63,7 +63,7 @@ class Home extends Component {
 
   joinEvent(e) {
     // Add the user
-    // console.log(this.props.loggedInUser);
+    console.log(this.props.loggedInUser);
     if (this.props.loggedInUser.length > 0) {
       
       // User is logged in. Join the user to the event
