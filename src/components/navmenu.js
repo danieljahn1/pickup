@@ -23,7 +23,7 @@ class NavMenu extends Component {
             if (objOfEmailFound.length > 0) {
                 if (objOfEmailFound[0].password == this.state.verifyPassword) {
                     // console.log("password matches");
-                    this.props.sendToRedux(objOfEmailFound[0]);
+                    this.props.sendToRedux(objOfEmailFound);
                     console.log(this.props.loggedInUser);
                     this.setState({ redirect: true })
                 } else {
