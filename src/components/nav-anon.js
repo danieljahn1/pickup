@@ -43,7 +43,6 @@ class NavAnon extends Component {
         }
         return (
             <nav className="col-md-6 pull-right">
-                {/* <Link to="/"><button className="btn btn-link">HOME</button></Link> */}
                 <a href="#openModal" className="btn btn-link pull-right">SIGN IN</a>
                 <Link to="/signup"><button className="btn btn-link pull-right">SIGN UP</button></Link>
                 <Link to="/createevent"><button className="btn btn-link pull-right">CREATE EVENTS</button></Link>
@@ -54,12 +53,12 @@ class NavAnon extends Component {
                         <h2>Sign In</h2>
                         <form>
                             <div className="form-group">
-                                <label htmlFor="email">Email</label>
-                                <input type="email" className="form-control" id="email" autoComplete="email" placeholder="email@address.com" value={this.state.verifyEmail} onChange={(e) => { this.setState({ verifyEmail: e.target.value }) }} required />
+                                <label htmlFor="email-modal">Email</label>
+                                <input type="email" className="form-control" id="email-modal" autoComplete="email" placeholder="email@address.com" value={this.state.verifyEmail} onChange={(e) => { this.setState({ verifyEmail: e.target.value }) }} required />
                             </div>
                             <div className="form-group">
-                                <label htmlFor="password">Password</label>
-                                <input type="password" className="form-control" id="password" autoComplete="current-password" placeholder="************" value={this.state.verifyPassword} onChange={(e) => { this.setState({ verifyPassword: e.target.value }) }} required />
+                                <label htmlFor="password-modal">Password</label>
+                                <input type="password" className="form-control" id="password-modal" autoComplete="current-password" placeholder="************" value={this.state.verifyPassword} onChange={(e) => { this.setState({ verifyPassword: e.target.value }) }} required />
                             </div>
                             <button href="#close" type="submit" className="btn btn-warning btn-block" onClick={this.userAuth.bind(this, this.state)}>Sign In</button>
                         </form>

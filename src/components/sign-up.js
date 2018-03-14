@@ -3,7 +3,7 @@ import uniqid from 'uniqid'
 import { connect } from 'react-redux'
 import { userCreate } from '../redux/actions'
 import { userAuth } from '../redux/actions'
-import { Redirect } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
 
 
 class SignUp extends Component {
@@ -49,7 +49,11 @@ class SignUp extends Component {
         }
         return (
             <div className="col-md-12">
-                <h2>Join in on the action now!</h2>
+                <h3>Join in on the action now!</h3>
+                {/* <div className="pull-right"> */}
+                    <span>Already have an account?</span>
+                    <Link to="/signin"><button className="btn btn-link">Sign In</button></Link>
+                {/* </div> */}
                 <form className="col-md-6">
                     <div className="form-group">
                         <input type="text" className="form-control" id="add-name" autoComplete="name" placeholder="Full Name" value={this.state.addName} onChange={(e) => { this.setState({ addName: e.target.value }) }} required />
