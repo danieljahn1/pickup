@@ -91,6 +91,25 @@
     padding: 3px;
   }
 
+  .playersHeader {
+    background-color: #e4e4e4;
+    border: 1px solid navy;
+    margin: 10px 0;
+    padding: 5px;
+  }
+
+  .eventdetails {
+    margin-top: 25px;
+  }
+  .eventdetail-left {
+    background-color: #fff;
+    margin: 5px;
+    margin-right: 50px;
+    /* border: 1px solid black; */
+    border-radius: 10px;
+
+  }
+
   /* End of EM styles */
 
   #navBar{

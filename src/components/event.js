@@ -9,50 +9,70 @@ import { joinEvent } from '../redux/actions'
 class Home extends Component {
   constructor(props) {
     super(props);
-    // this.state = { }
+    
+    this.state = {
+      redirect: false
+     }
     // console.log(this.props.match.params.eventId);
   }
 
   render() {
-    // if (this.props.loggedInUser.length == 0) {
-    //   return <Redirect to="/signup" />
-    // }
+    const { redirect } = this.state;
+    if (redirect) {
+      // If the user is not logged in, redirect them to the signup page
+        return <Redirect to="/signup" />
+    }
     return (
-      <div className="col-md-12 container">
+      <div className="col-md-12 container eventdetails">
+        <div className="pull-right">
+          <Link to="/viewevents"><button id="btnBack" className="btn btn-info btn-xs">Back to Events</button></Link>
+        </div>
         {// console.log(this.props.events.filter((item) => item.id == this.props.match.params.eventId))
-        this.props.events
-          .filter(item => item.id == this.props.match.params.eventId)
-          .map((item, index) => (
-            <div key={index} className="col-md-8 eventCard">
-              <div className="row innerEventCard">
-                <h4>{item.event}</h4>
-                <p>Category: {item.category}</p>
-                <p>Date: {item.date}</p>
+        
+          this.props.events
+            .filter(item => item.id == this.props.match.params.eventId)
+            .map((item, index) => (
+              <div className="col-md-10" key={index}>
+                <div className="col-md-5 eventdetail-left">
+                  <div className="row innerEventCard">
+                    <h4>{item.date}</h4>
+                    <h4>{item.event}</h4>
+                    {/* <p>Category: {item.category}</p> */}
+                    
+                  </div>
+                  <div className="row innerEventCard">
+                    <p className="detailsSubheader">Details:</p>                
+                    <p className="message">{item.message}</p>
+                    
+                    <div className="row innerEventCard">
+                      <p className="detailsSubheader">Status: </p>
+                      <p>{ this.getEventStatus(item.id) }</p>                
+                    </div>
+                    
+                    <p>Minimum number of players needed: {item.minPlayersNeeded}</p>
+                    <p>Maximum number of players needed: {item.maxPlayersNeeded}</p>
+                  </div>
+                  <div className="row innerEventCard">
+                    <button id="btnJoin" className="btn btn-success btnPadding" onClick={ this.submitJoinEvent.bind(this) }>
+                      Join the Event
+                    </button>
+                  </div>
+                </div>
+                
+                <div className="col-md-5 eventCard">
+                  <div className="row innerEventCard">
+                    <p className="detailsSubheader">Location:</p>
+                    <p>{item.address}</p>
+                    <p>{item.zip}</p>
+                  </div>
+                                  
+                </div>
               </div>
-              <div className="row innerEventCard">
-                <p className="detailsSubheader">Location:</p>
-                <p>{item.address}</p>
-                <p>{item.zip}</p>
-              </div>
-              <div className="row innerEventCard">
-                <p className="detailsSubheader">Status: </p>
-                <p>{ this.getEventStatus(item.id) }</p>
-                <p className="detailsSubheader">Details:</p>
-                <p>Minimum number of players needed: {item.minPlayersNeeded}</p>
-                <p>Maximum number of players needed: {item.maxPlayersNeeded}</p>
-              </div>
-              <div className="row innerEventCard">
-                <p className="message">{item.message}</p>
-                {/* <Link to={'/eventdetails/' + item.id}><button id="btnJoin" className="btn btn-success">More Info</button></Link> */}
-                <button id="btnJoin" className="btn btn-success btnPadding" onClick={ this.joinEvent.bind(this) }>
-                  Join the Event
-                </button>
-              </div>
-            </div>
-          ))}
+            ))
+        }
 
           <div className="col-md-12 container">
-            <h3>Players</h3>
+            <div><h3>Players</h3></div>        
             <div className="col-md-12 container">
                 { this.displayAttendees(this.props.match.params.eventId) }
             </div>
@@ -61,32 +81,67 @@ class Home extends Component {
     );
   }
 
-  joinEvent(e) {
-    // Add the user
-    console.log(this.props.loggedInUser);
+  submitJoinEvent(e) {
+    // Add the user if the user is logged in. Logged in user's details are stored in this.props.loggedInUser
+    // console.log(this.props.loggedInUser);
+    const eventID = this.props.match.params.eventId;
+
     if (this.props.loggedInUser.length > 0) {
       
       // User is logged in. Join the user to the event
-      console.log("Join userID " + this.props.loggedInUser[0].id + " to eventID " + this.props.match.params.eventId);
+      // console.log("Join userID " + this.props.loggedInUser[0].id + " to eventID " + eventID);
 
       // Make sure the user isn't already joined to the event
-
-
-      // If user is not, then add the userID/eventID association to the event
-      var participantArr = this.props.participants.concat( {
-        userId: this.props.loggedInUser[0].id,
-        eventID: this.props.match.params.eventId
+      // Filter the redux participants array by the eventID
+      var eventArr = this.props.participants.filter(item => item.eventID == eventID);
+      
+      var partOfEvent = false;
+      // If user is part of the event then flag true
+      for (var i = 0; i < eventArr.length; i++) {
+    
+        if (eventArr[i].userId == this.props.loggedInUser[0].id) {
+          // UserID found. Flag the user
+          // console.log("UserID already joined: " + eventArr[i].userId);
+          partOfEvent = true;
+        }    
       }
-      )
 
-      this.props.addAttendee(participantArr);
+      if (partOfEvent) {
+        // User is already a participant. Send alert
+        alert("You are already signed up to play in this event.");
+      }
+      else {
+        // User is not a participant, Add the userID/eventID association to the participants array
+        var confirmEvent = false;
+        confirmEvent = confirm("Would you like to join this game?");
 
-      // Update the number of participants. Subtract by max by one
+        if (confirmEvent) {
+          // Add the user as a participant
+          var participantsArr = this.props.participants.concat( {
+              userId: this.props.loggedInUser[0].id,
+              eventID: eventID
+            }
+          )
+
+          // Update particpants in redux
+          this.props.addParticipant(participantsArr);
+
+          // Update the number of participants. Subtract by max by one
+          var getEventCopy = this.props.events.filter( (item) => item.id == eventID );
+
+          // console.log(getEventCopy);
+          getEventCopy[0].maxPlayersNeeded -= 1;
+        }
+      }
+      
 
     }
     else {
-      // User is not logged in. Redirect to login
-      console.log("Login the user");
+      // User is not logged in. Redirect to sign up page
+      // console.log("Login the user");
+      this.setState({ 
+        redirect: true
+       })
       
     }
   }
@@ -158,9 +213,10 @@ const MapStateToProps = state => {
 
 const MapDispatchToProps = dispatch => {
   return {
-    addAttendee: attendee => dispatch(joinEvent(attendee))
+    addParticipant: attendee => dispatch(joinEvent(attendee))
   }
 }
+
 
 
 export default connect(MapStateToProps, MapDispatchToProps)(Home);

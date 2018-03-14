@@ -4,3 +4,5 @@ export const userAuth = logInUser => ({type: 'USER_AUTH', payload: logInUser})
 
 export const loadOtherEvents = events => ({ type: 'LOAD_EVENTS', payload: events  })
 export const updateEventsLoadFlag = flag => ({type: 'LOAD_EVENTS_FLAG', payload: flag })
+
+export const joinEvent = participants => ({ type: 'ADD_ATTENDEE', payload: participants })

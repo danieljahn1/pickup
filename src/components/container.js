@@ -23,16 +23,16 @@ class Container extends Component {
     }
 
     render() {
-        const { redirect } = this.state;
-        if (redirect) {
-            return <Redirect to="/welcome" />
-        }
+        // const { redirect } = this.state;
+        // if (redirect) {
+        //     return <Redirect to="/welcome" />
+        // }
         return (
             <div className="container">
                 <div className="container-fluid">
                     <NavAnon />
-                    <NavKnown />
-                    <Title title="Pickup App" />
+                    {/* <NavKnown /> */}
+                    {/* <Title title="Pickup App" /> */}
                 <Switch>
                     <Route exact path='/' component={Home} />
                     <Route path='/signup' component={SignUp} />
@@ -48,11 +48,12 @@ class Container extends Component {
     }
 }
 
-const mapStateToProps = state => {
-    return {
-        loggedInUser: state.loggedInUser,
-        usersArr: state.usersArr,
-    }
-}
+// const mapStateToProps = state => {
+//     return {
+//         loggedInUser: state.loggedInUser,
+//         usersArr: state.usersArr
+//     }
+// }
 
-export default connect(mapStateToProps)(Container)
+// export default connect(mapStateToProps)(Container)
+export default Container
