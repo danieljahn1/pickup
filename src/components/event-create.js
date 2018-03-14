@@ -21,12 +21,13 @@ class EventCreate extends Component {
         }
     }
 
-    eventCreate() {
+    eventCreate(e) {
         var eventsCopy = this.state.events.slice();
         eventsCopy.unshift({
             event: this.state.event,
             date: this.state.date,
             address: this.state.address,
+
             zip: this.state.zip,
             category: this.state.category,
             minPlayersNeeded: this.state.minPlayersNeeded,
@@ -34,6 +35,8 @@ class EventCreate extends Component {
             message: this.state.message
         })
         this.props.sendToRedux(eventsCopy);
+        console.log(this.props.events)
+        console.log(eventsCopy)
     }
     render() {
         return (
@@ -42,7 +45,7 @@ class EventCreate extends Component {
                 <form className="col-md-6">
                     <div className="form-group">
                         {/* <label htmlFor="name">Event</label> */}
-                        <input type="text" className="form-control" id="event" autoComplete="event" placeholder="Type of Event" value={this.state.event} onChange={(e) => { this.setState({ event: e.target.value }) }} required />
+                        <input type="text" className="form-control" id="event" autoComplete="event" placeholder="Type of Event" value={this.state.event} onChange={(e) => { this.setState({ event: e.target.value }) }}required />
                     </div>
 
                     <div className="form-group">
@@ -54,11 +57,6 @@ class EventCreate extends Component {
                         {/* <label htmlFor="gender">Address</label> */}
                         <input type="text" className="form-control" id="address" autoComplete="address" placeholder="Address" value={this.state.address} onChange={(e) => { this.setState({ address: e.target.value }) }} />
                     </div>
-
-                    {/* <div className="form-group">
-                        <label htmlFor="city">City</label>
-                        <input type="text" className="form-control" id="city" autoComplete="city" placeholder="City" value={this.state.city} onChange={(e) => { this.setState({ city: e.target.value }) }} />
-                    </div> */}
 
                     <div className="form-group">
                         {/* <label htmlFor="state">Zip</label> */}
@@ -95,7 +93,7 @@ class EventCreate extends Component {
                         <input type="text" className="form-control" id="message" autoComplete="message" placeholder="Message" value={this.state.message} onChange={(e) => { this.setState({ message: e.target.value }) }} />
                     </div>
                     {/* <Link to={'/viewevents/'}> */}
-                    <button className="btn btn-success pull-right" onClick={this.eventCreate.bind(this, this.state)} >Submit</button>
+                    <button type="button" className="btn btn-success pull-right" onClick={this.eventCreate.bind(this, this.state)} >Submit</button>
                     {/* </Link> */}
                     
                 </form>
@@ -105,10 +103,15 @@ class EventCreate extends Component {
         )
     }
 }
+const mapStateToProps = state => {
+    return {
+        events: state.events
+    }
+}
 const mapDispatchToProps = dispatch => {
     return {
         sendToRedux: newEvent => dispatch(eventCreate(newEvent))
     }
 }
 
-export default connect(mapDispatchToProps)(EventCreate)
+export default connect(mapStateToProps, mapDispatchToProps)(EventCreate)
