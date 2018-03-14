@@ -76,7 +76,7 @@ class SignUp extends Component {
                         <small className="form-text text-muted" id="add-password-help">Must be at least 8 characters long.</small>
                     </div>
                     <small className="form-text text-muted" id="tou-pp-help">By Signing Up, you agree to our <a href="#">Terms of Use</a> and <a href="#">Privacy Policy.</a></small>
-                    <button type="button" className="btn btn-warning btn-block" onClick={this.userCreate.bind(this, this.state)}>Sign Up</button>
+                    <button type="submit" className="btn btn-warning btn-block" onClick={this.userCreate.bind(this, this.state)}>Sign Up</button>
                 </form>
             </div>
         )
