@@ -29,34 +29,6 @@ class Container extends Component {
         }
         return (
             <div className="container">
-<<<<<<< HEAD
-                
-                <div className="container-fluid" id='image'>
-                    <NavMenu />
-                    <Title />
-                    
-                    {/* <SignIn signInClick={this.signIn.bind(this)}/> */}
-                    {/* <SignUp /> */}
-                    {/* <Welcome/> */}
-
-
-                </div>
-
-                <div className="container-fluid">
-                    {/* Page content/componenent go here */}
-                    {/* Check out Pickup, the app that allows you to find a game near you. */}
-
-                    {/* <TestRedux /> */}
-                    <Switch>
-                        <Route exact path='/' component={ Home } />
-                        <Route path='/signup' render={() => <SignUp /> } />
-                        <Route path='/welcome' component={ Welcome } />
-                        <Route path='/createevent' component= { EventCreate } />
-                        <Route path='/viewevents' component= { EventList } />
-                        <Route path='/eventdetails/:eventId' component={ Event } />
-                    </Switch>
-                    {/* <EventList /> */}
-=======
                 <div className="container-fluid">
                     <NavAnon />
                     <NavKnown />
@@ -70,7 +42,6 @@ class Container extends Component {
                     <Route path='/viewevents' component={EventList} />
                     <Route path='/eventdetails/:eventId' component={Event} />
                 </Switch>
->>>>>>> 2c91e90997e7c4349750ee677dda44081a66b111
                 </div>
             </div>
         )
