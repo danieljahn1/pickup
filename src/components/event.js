@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 
 import { connect } from 'react-redux';
 import { updateMaxPlayers } from '../redux/actions'
+import { Link, Redirect } from 'react-router-dom'
+
+import { joinEvent } from '../redux/actions'
 
 class Home extends Component {
   constructor(props) {
@@ -11,6 +14,9 @@ class Home extends Component {
   }
 
   render() {
+    // if (this.props.loggedInUser.length == 0) {
+    //   return <Redirect to="/signup" />
+    // }
     return (
       <div className="col-md-12 container">
         {// console.log(this.props.events.filter((item) => item.id == this.props.match.params.eventId))
@@ -38,7 +44,7 @@ class Home extends Component {
               <div className="row innerEventCard">
                 <p className="message">{item.message}</p>
                 {/* <Link to={'/eventdetails/' + item.id}><button id="btnJoin" className="btn btn-success">More Info</button></Link> */}
-                <button id="btnJoin" className="btn btn-success btnPadding">
+                <button id="btnJoin" className="btn btn-success btnPadding" onClick={ this.joinEvent.bind(this) }>
                   Join the Event
                 </button>
               </div>
@@ -53,6 +59,36 @@ class Home extends Component {
           </div>
       </div>
     );
+  }
+
+  joinEvent(e) {
+    // Add the user
+    console.log(this.props.loggedInUser);
+    if (this.props.loggedInUser.length > 0) {
+      
+      // User is logged in. Join the user to the event
+      console.log("Join userID " + this.props.loggedInUser[0].id + " to eventID " + this.props.match.params.eventId);
+
+      // Make sure the user isn't already joined to the event
+
+
+      // If user is not, then add the userID/eventID association to the event
+      var participantArr = this.props.participants.concat( {
+        userId: this.props.loggedInUser[0].id,
+        eventID: this.props.match.params.eventId
+      }
+      )
+
+      this.props.addAttendee(participantArr);
+
+      // Update the number of participants. Subtract by max by one
+
+    }
+    else {
+      // User is not logged in. Redirect to login
+      console.log("Login the user");
+      
+    }
   }
 
   displayAttendees(eventID) {
@@ -115,10 +151,16 @@ const MapStateToProps = state => {
   return {
     events: state.events,
     participants: state.participants,
-    usersArr: state.usersArr
+    usersArr: state.usersArr,
+    loggedInUser: state.loggedInUser
+  }
+}
+
+const MapDispatchToProps = dispatch => {
+  return {
+    addAttendee: attendee => dispatch(joinEvent(attendee))
   }
 }
 
 
-
-export default connect(MapStateToProps)(Home);
+export default connect(MapStateToProps, MapDispatchToProps)(Home);

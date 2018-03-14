@@ -1,34 +1,29 @@
 import React, { Component } from 'react'
+import { Link, Switch, Route } from 'react-router-dom'
 import uniqid from 'uniqid'
 
-import TestRedux from './testredux'
+import NavAnon from './nav-anon'
+import NavKnown from './nav-known'
 import Title from './title'
-import NavMenu from './navmenu'
 import Home from './home'
 import SignUp from './sign-up'
 import Welcome from './welcome'
-
-
 import EventCreate from './event-create'
 import EventList from './event-list'
 import Event from './event'
-
-import { Link, Switch, Route } from 'react-router-dom'
-
+import TestRedux from './testredux'
 
 
 
 class Container extends Component {
     constructor(props) {
         super(props)
-
-        this.state = {            
-        }
     }
 
     render() {
-        return(
+        return (
             <div className="container">
+<<<<<<< HEAD
                 
                 <div className="container-fluid" id='image'>
                     <NavMenu />
@@ -55,6 +50,20 @@ class Container extends Component {
                         <Route path='/eventdetails/:eventId' component={ Event } />
                     </Switch>
                     {/* <EventList /> */}
+=======
+                <div className="container-fluid">
+                    <NavAnon />
+                    {/* <NavKnown /> */}
+                    <Title title="Pickup App" />
+                <Switch>
+                    <Route exact path='/' component={Home} />
+                    <Route path='/signup' render={() => <SignUp />} />
+                    <Route path='/welcome' component={Welcome} />
+                    <Route path='/createevent' component={EventCreate} />
+                    <Route path='/viewevents' component={EventList} />
+                    <Route path='/eventdetails/:eventId' component={Event} />
+                </Switch>
+>>>>>>> 2c91e90997e7c4349750ee677dda44081a66b111
                 </div>
             </div>
         )
