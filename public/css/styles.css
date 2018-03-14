@@ -2,14 +2,15 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+   
   }
 
   .container {
     max-width: 80%;
   }
   
-  body {
-    background-color: lightblue;
+  .home {
+    background: url('./../images/court.jpg') no-repeat center center ;
   }
   
   .modalDialog {
@@ -91,3 +92,22 @@
   }
 
   /* End of EM styles */
+
+  #navBar{
+  height: 20px;
+  background-color: black;
+    
+  }
+  #pick {
+  font-size: 30px;
+  color:white;
+  }
+#home {
+color: white;
+margin-bottom: 100px;
+}
+#image {
+width: 100%;
+margin-top: 50px;
+
+}
