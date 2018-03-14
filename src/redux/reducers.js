@@ -121,7 +121,8 @@ const rootReducer = (state = initialState, action) => {
     if (action.type == "USER_AUTH") {
         state = {
             ...state,
-            loggedInUser: state.loggedInUser.splice(0,1,action.payload)
+            // loggedInUser: state.loggedInUser.splice(0,1,action.payload)
+            loggedInUser: action.payload
         }
     }
     if (action.type == "LOAD_EVENTS") {
