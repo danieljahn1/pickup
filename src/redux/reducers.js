@@ -111,7 +111,6 @@ const rootReducer = (state = initialState, action) => {
             ...state,
             events: state.events.concat(action.payload)
         }
-
     }
     if (action.type == "USER_CREATE") {
         state = {

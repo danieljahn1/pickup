@@ -10,7 +10,7 @@ class Home extends Component {
     render() {
         return (
             <div className="col-md-12">
-                
+                Home
             </div>
         )
     }

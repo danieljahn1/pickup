@@ -4,7 +4,7 @@ import { Link, Redirect } from 'react-router-dom'
 import { userAuth } from '../redux/actions'
 
 
-class NavMenu extends Component {
+class NavAnon extends Component {
     constructor(props) {
         super(props)
 
@@ -22,18 +22,17 @@ class NavMenu extends Component {
 
             if (objOfEmailFound.length > 0) {
                 if (objOfEmailFound[0].password == this.state.verifyPassword) {
-                    // console.log("password matches");
                     this.props.sendToRedux(objOfEmailFound);
+                    this.setState({ redirect: true });
                     console.log(this.props.loggedInUser);
-                    this.setState({ redirect: true })
                 } else {
-                    alert("Error:5011 Incorrect Email or Password")
+                    alert("Error: 5011 Incorrect Email or Password")
                 }
             } else {
-                alert("Error:5012 Incorrect Email or Password")
+                alert("Error: 5012 Incorrect Email or Password")
             }
         } else {
-            alert("Error:5010 Please enter correct Email and Password.")
+            alert("Error: 5010 Please enter correct Email and Password.")
         }
     }
 
@@ -45,10 +44,10 @@ class NavMenu extends Component {
         return (
             <nav className="col-md-6 pull-right">
                 {/* <Link to="/"><button className="btn btn-link">HOME</button></Link> */}
-                <a href="#openModal" className="btn btn-link pull-left">SIGN IN</a>
-                <Link to="/signup"><button className="btn btn-link">SIGN UP</button></Link>
-                <Link to="/viewevents"><button className="btn btn-link">VIEW EVENTS</button></Link>
-                <Link to="/createevent"><button className="btn btn-link">CREATE EVENTS</button></Link>
+                <a href="#openModal" className="btn btn-link pull-right">SIGN IN</a>
+                <Link to="/signup"><button className="btn btn-link pull-right">SIGN UP</button></Link>
+                <Link to="/createevent"><button className="btn btn-link pull-right">CREATE EVENTS</button></Link>
+                <Link to="/viewevents"><button className="btn btn-link pull-right">VIEW EVENTS</button></Link>
                 <div id="openModal" className="modalDialog">
                     <div>
                         <a href="#close" title="Close" className="close">X</a>
@@ -84,4 +83,4 @@ const mapDispatchToProps = dispatch => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(NavMenu)
+export default connect(mapStateToProps, mapDispatchToProps)(NavAnon)

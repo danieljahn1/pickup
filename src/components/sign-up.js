@@ -89,6 +89,7 @@ const mapStateToProps = state => {
         loggedInUser: state.loggedInUser,
     }
 }
+
 const mapDispatchToProps = dispatch => {
     return {
         createNewUserRedux: newUser => dispatch(userCreate(newUser)),
