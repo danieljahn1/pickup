@@ -30,9 +30,9 @@ class Container extends Component {
         return(
             <div className="container">
                 
-                <div className="container-fluid">
+                <div className="container-fluid" id='image'>
                     <NavMenu />
-                    <Title title="Pickup App" />
+                    <Title />
                     
                     {/* <SignIn signInClick={this.signIn.bind(this)}/> */}
                     {/* <SignUp /> */}
