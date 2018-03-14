@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import uniqid from 'uniqid'
 import { connect } from 'react-redux'
 import { userCreate } from '../redux/actions'
+import { userAuth } from '../redux/actions'
 import { Redirect } from 'react-router-dom'
 
 
@@ -33,9 +34,11 @@ class SignUp extends Component {
                 email: this.state.addEmail,
                 password: this.state.addPassword,
             })
-            this.props.sendToRedux(usersArrCopy);
+            this.props.createNewUserRedux(usersArrCopy);
+            this.props.logInNewUserRedux(usersArrCopy);
+            this.setState({ redirect: true });
             console.log(this.props.usersArr);
-            this.setState({ redirect: true })
+            console.log(this.props.loggedInUser);
         }
     }
 
@@ -73,7 +76,7 @@ class SignUp extends Component {
                         <small className="form-text text-muted" id="add-password-help">Must be at least 8 characters long.</small>
                     </div>
                     <small className="form-text text-muted" id="tou-pp-help">By Signing Up, you agree to our <a href="#">Terms of Use</a> and <a href="#">Privacy Policy.</a></small>
-                    <button type="submit" className="btn btn-warning btn-block" onClick={this.userCreate.bind(this, this.state)}>Sign Up</button>
+                    <button type="button" className="btn btn-warning btn-block" onClick={this.userCreate.bind(this, this.state)}>Sign Up</button>
                 </form>
             </div>
         )
@@ -82,12 +85,14 @@ class SignUp extends Component {
 
 const mapStateToProps = state => {
     return {
-        usersArr: state.usersArr
+        usersArr: state.usersArr,
+        loggedInUser: state.loggedInUser,
     }
 }
 const mapDispatchToProps = dispatch => {
     return {
-        sendToRedux: newUser => dispatch(userCreate(newUser)),
+        createNewUserRedux: newUser => dispatch(userCreate(newUser)),
+        logInNewUserRedux: newUser => dispatch(userAuth(newUser)),
     }
 }
 
