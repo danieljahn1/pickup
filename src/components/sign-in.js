@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
 import { Link, Redirect } from 'react-router-dom'
+import { connect } from 'react-redux'
 import { userAuth } from '../redux/actions'
 
 
@@ -43,20 +43,24 @@ class SignIn extends Component {
         }
         return (
             <div className="col-md-12">
-                <h3>Please Sign In to Join and Create Events.</h3>
-                <span>Don't have an account?</span>
-                <Link to="/signup"><button className="btn btn-link">Sign Up</button></Link>
-                <form className="col-md-6">
-                    <div className="form-group">
-                        <label htmlFor="email">Email</label>
-                        <input type="email" className="form-control" id="email" autoComplete="email" placeholder="email@address.com" value={this.state.verifyEmail} onChange={(e) => { this.setState({ verifyEmail: e.target.value }) }} required />
+                <h2>Sign in to join and create events</h2>
+                <div className="col-md-6">
+                    <div className="pull-right">
+                        <span>Don't have an account?</span>
+                        <Link to="/signup"><button className="btn btn-link">Sign Up</button></Link>
                     </div>
-                    <div className="form-group">
-                        <label htmlFor="password">Password</label>
-                        <input type="password" className="form-control" id="password" autoComplete="current-password" placeholder="************" value={this.state.verifyPassword} onChange={(e) => { this.setState({ verifyPassword: e.target.value }) }} required />
-                    </div>
-                    <button type="submit" className="btn btn-warning btn-block" onClick={this.userAuth.bind(this, this.state)}>Sign In</button>
-                </form>
+                    <form>
+                        <div className="form-group">
+                            {/* <label htmlFor="email">Email</label> */}
+                            <input type="email" className="form-control" id="email" autoComplete="email" placeholder="Email" value={this.state.verifyEmail} onChange={(e) => { this.setState({ verifyEmail: e.target.value }) }} required />
+                        </div>
+                        <div className="form-group">
+                            {/* <label htmlFor="password">Password</label> */}
+                            <input type="password" className="form-control" id="password" autoComplete="current-password" placeholder="Password" value={this.state.verifyPassword} onChange={(e) => { this.setState({ verifyPassword: e.target.value }) }} required />
+                        </div>
+                        <button type="submit" className="btn btn-warning btn-block" onClick={this.userAuth.bind(this, this.state)}>Sign In</button>
+                    </form>
+                </div>
             </div>
         )
     }

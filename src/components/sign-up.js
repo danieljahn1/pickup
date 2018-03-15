@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import uniqid from 'uniqid'
+import { Link, Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { userCreate } from '../redux/actions'
 import { userAuth } from '../redux/actions'
-import { Link, Redirect } from 'react-router-dom'
 
 
 class SignUp extends Component {
@@ -38,7 +38,7 @@ class SignUp extends Component {
             this.props.logInNewUserRedux(usersArrCopy);
             this.setState({ redirect: true });
             console.log(this.props.usersArr);
-            console.log(this.props.loggedInUser);
+            // console.log(this.props.loggedInUser);
         }
     }
 
@@ -49,39 +49,42 @@ class SignUp extends Component {
         }
         return (
             <div className="col-md-12">
-                <h3>Join in on the action now!</h3>
-                {/* <div className="pull-right"> */}
-                    <span>Already have an account?</span>
-                    <Link to="/signin"><button className="btn btn-link">Sign In</button></Link>
-                {/* </div> */}
-                <form className="col-md-6">
-                    <div className="form-group">
-                        <input type="text" className="form-control" id="add-name" autoComplete="name" placeholder="Full Name" value={this.state.addName} onChange={(e) => { this.setState({ addName: e.target.value }) }} required />
+                <h2>Join in on the action now!</h2>
+                <div className="col-md-6">
+                    <div className="pull-right">
+                        <span>Already have an account?</span>
+                        <Link to="/signin"><button className="btn btn-link">Sign In</button></Link>
                     </div>
-                    <div className="form-group">
-                        <input type="date" className="form-control" id="add-dob" autoComplete="birthdate" placeholder="Date of Birth" value={this.state.addDob} onChange={(e) => { this.setState({ addDob: e.target.value }) }} />
-                    </div>
-                    <div className="form-group">
-                        <select type="gender" className="form-control" id="add-gender" autoComplete="gender" value={this.state.addGender} onChange={(e) => { this.setState({ addGender: e.target.value }) }}>
-                            <option defaultValue>Gender...</option>
-                            <option>Male</option>
-                            <option>Female</option>
-                            <option>Prefer not to answer</option>
-                        </select>
-                    </div>
-                    <div className="form-group">
-                        <input type="text" pattern="[0-9]{5}" className="form-control" id="add-zip" autoComplete="postal-code" placeholder="Zip Code" value={this.state.addZip} onChange={(e) => { this.setState({ addZip: e.target.value }) }} required />
-                    </div>
-                    <div className="form-group">
-                        <input type="email" className="form-control" id="add-mail" autoComplete="email" placeholder="email@address.com" value={this.state.addEmail} onChange={(e) => { this.setState({ addEmail: e.target.value }) }} required />
-                    </div>
-                    <div className="form-group">
-                        <input type="password" pattern=".{8,}" className="form-control" id="add-password" autoComplete="new-password" placeholder="Password" value={this.state.addPassword} onChange={(e) => { this.setState({ addPassword: e.target.value }) }} required />
-                        <small className="form-text text-muted" id="add-password-help">Must be at least 8 characters long.</small>
-                    </div>
-                    <small className="form-text text-muted" id="tou-pp-help">By Signing Up, you agree to our <a href="#">Terms of Use</a> and <a href="#">Privacy Policy.</a></small>
-                    <button type="submit" className="btn btn-warning btn-block" onClick={this.userCreate.bind(this, this.state)}>Sign Up</button>
-                </form>
+                    <form>
+                        <div className="form-group">
+                            <input type="text" className="form-control" id="add-name" autoComplete="name" placeholder="Full Name" value={this.state.addName} onChange={(e) => { this.setState({ addName: e.target.value }) }} required />
+                        </div>
+                        <div className="form-group">
+                            <input type="date" className="form-control" id="add-dob" autoComplete="birthdate" placeholder="Date of Birth" value={this.state.addDob} onChange={(e) => { this.setState({ addDob: e.target.value }) }} />
+                            <small className="form-text text-muted" id="add-dob-help">Birth Date</small>
+                        </div>
+                        <div className="form-group">
+                            <select type="gender" className="form-control" id="add-gender" autoComplete="gender" value={this.state.addGender} onChange={(e) => { this.setState({ addGender: e.target.value }) }}>
+                                <option defaultValue>Gender...</option>
+                                <option>Male</option>
+                                <option>Female</option>
+                                <option>Prefer not to answer</option>
+                            </select>
+                        </div>
+                        <div className="form-group">
+                            <input type="text" pattern="[0-9]{5}" className="form-control" id="add-zip" autoComplete="postal-code" placeholder="Zip Code" value={this.state.addZip} onChange={(e) => { this.setState({ addZip: e.target.value }) }} required />
+                        </div>
+                        <div className="form-group">
+                            <input type="email" className="form-control" id="add-mail" autoComplete="email" placeholder="Email" value={this.state.addEmail} onChange={(e) => { this.setState({ addEmail: e.target.value }) }} required />
+                        </div>
+                        <div className="form-group">
+                            <input type="password" pattern=".{8,}" className="form-control" id="add-password" autoComplete="new-password" placeholder="Password" value={this.state.addPassword} onChange={(e) => { this.setState({ addPassword: e.target.value }) }} required />
+                            <small className="form-text text-muted" id="add-password-help">Must be at least 8 characters long.</small>
+                        </div>
+                        <small className="form-text text-muted" id="tou-pp-help">By Signing Up, you agree to our <a href="#">Terms of Use</a> and <a href="#">Privacy Policy.</a></small>
+                        <button type="submit" className="btn btn-warning btn-block" onClick={this.userCreate.bind(this, this.state)}>Sign Up</button>
+                    </form>
+                </div>
             </div>
         )
     }

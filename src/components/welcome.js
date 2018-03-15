@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
 
 class Welcome extends Component {
     constructor(props) {
@@ -8,10 +9,13 @@ class Welcome extends Component {
     render() {
         return (
             <div className="col-md-12">
-                <div className="col-md-4">
+                <div className="col-md-12">
+                    <h3>Welcome {this.props.loggedInUser[0].name}</h3>
+                </div>
+                <div className="col-md-6">
                     <Link to="/createevent"><button className="btn btn-lg">Start A New Event</button></Link>
                 </div>
-                <div className="col-md-4">
+                <div className="col-md-6">
                     <Link to="/viewevents"><button className="btn btn-lg">Find Events To Join</button></Link>
                 </div>
             </div>
@@ -19,4 +23,11 @@ class Welcome extends Component {
     }
 }
 
-export default Welcome
+const mapStateToProps = state => {
+    return {
+        loggedInUser: state.loggedInUser,
+        usersArr: state.usersArr,
+    }
+}
+
+export default connect(mapStateToProps)(Welcome)

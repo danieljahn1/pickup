@@ -125,6 +125,13 @@ const rootReducer = (state = initialState, action) => {
             loggedInUser: action.payload
         }
     }
+    if (action.type == "USER_LOG_OUT") {
+        state = {
+            ...state,
+            // loggedInUser: state.loggedInUser.splice(0,1,action.payload)
+            loggedInUser: action.payload
+        }
+    }
     if (action.type == "LOAD_EVENTS") {
         // Load the events from the JSON file
         state = {
