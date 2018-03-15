@@ -37,10 +37,10 @@ class NavAnon extends Component {
     render() {
         return (
             <nav className="col-md-6 pull-right nav-links">
-                <a href="#openModal" className="btn btn-link pull-right">SIGN IN</a>
-                <Link to="/signup"><button className="btn btn-link pull-right">SIGN UP</button></Link>
-                <Link to="/createevent"><button className="btn btn-danger pull-right">CREATE EVENTS</button></Link>
-                <Link to="/viewevents"><button className="btn btn-danger pull-right">VIEW EVENTS</button></Link>
+                <a href="#openModal" className="btn btn-warning pull-right">SIGN IN</a>
+                <Link to="/signup"><button className="btn btn-warning pull-right">SIGN UP</button></Link>
+                <Link to="/createevent"><button className="btn btn-warning pull-right">CREATE EVENTS</button></Link>
+                <Link to="/viewevents"><button className="btn btn-warning pull-right">VIEW EVENTS</button></Link>
                 <div id="openModal" className="modalDialog">
                     <div>
                         <a href="#close" title="Close" className="close">X</a>

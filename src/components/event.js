@@ -31,19 +31,18 @@ class Home extends Component {
         return <Redirect to="/signup" />
     }
     return (
-      <div className="col-md-12 container eventdetails" id="eventdetailsbg">
+      <div className="col-md-12 container-fluid" id="eventdetailsbg">
         <div className="pull-right">
-          <Link to="/viewevents"><button id="btnBack" className="btn btn-info btn-xs">Back to Events</button></Link>
+          <Link to="/viewevents"><button id="btnBack" className="btn btn-info btn-sm">Back to Events</button></Link>
         </div>
-        
 
         {// console.log(this.props.events.filter((item) => item.id == this.props.match.params.eventId))
         
           this.props.events
             .filter(item => item.id == this.props.match.params.eventId)
             .map((item, index) => (
-              <div className="col-md-10" key={index}>
-                <div className="col-md-5 eventdetail-left">
+              <div className="col-md-12" key={index}>
+                <div className="col-md-6 eventdetail-left">
                   <div className="row innerEventCard">
                     <h4>{item.date}</h4>
                     <h4>{item.event}</h4>
@@ -54,10 +53,10 @@ class Home extends Component {
                     <p className="detailsSubheader">Details:</p>                
                     <p className="message">{item.message}</p>
                     
-                    <div className="row innerEventCard">
+                    {/* <div className="row innerEventCard"> */}
                       <p className="detailsSubheader">Status: </p>
-                      <p>{ this.state.eventStatus }</p>                
-                    </div>
+                      <p className="message">{ this.state.eventStatus }</p>                
+                    {/* </div> */}
                     
                     <p>Minimum number of players needed: {item.minPlayersNeeded}</p>
                     <p>Players still needed: {item.maxPlayersNeeded}</p>
@@ -69,11 +68,13 @@ class Home extends Component {
                   </div>
                 </div>
                 
-                <div className="col-md-5 eventCard">
+                <div className="col-md-4 eventCard">
                   <div className="row innerEventCard">
-                    <p className="detailsSubheader">Location:</p>
-                    <p>{item.address}</p>
-                    <p>{item.zip}</p>
+                    <p className="detailsSubheader">{item.venue}</p>                    
+                    <p>{item.address} {item.zip}</p>
+
+                    <img src={ this.getMap(item.address, item.zip) } className="img-responsive" />
+                    {/* { this.getMap(item.address, item.zip) } */}
                   </div>
                                   
                 </div>
@@ -81,14 +82,28 @@ class Home extends Component {
             ))
         }
 
-          <div className="col-md-12 container">
-            <div><h3>Players</h3></div>        
-            <div className="col-md-12 container">
+          <div className="col-md-12 container-fluid playersContainer">
+            <div className="playersHeader"><h3 className="playerTitle">Players</h3></div>        
+            <div className="col-md-12 container-fluid attendeesContainer">
                 { this.displayAttendees(this.props.match.params.eventId) }
             </div>
           </div>
       </div>
     );
+  }
+
+  getMap(address, zipCode) {
+    // Piece together the API URL in order to display the static map. Return the URL
+    const mapquestKey = "W9pxDBj1ipgcPfMKN4dnxOkpoPHpknHN";
+    var url = "https://www.mapquestapi.com/staticmap/v5/map?key=" + mapquestKey;
+    url += "&type=map&zoom=16&size=@2x&locations=";
+
+    // Replace spaces with a plus sign
+    address = address.replace(/ /g, "+");
+    url += address + "+" + zipCode;
+
+    // console.log(url);
+    return url;
   }
 
   submitJoinEvent(e) {
@@ -180,13 +195,21 @@ class Home extends Component {
             players.push(usersArrCopy[0]);            
         }
     }
-
-    // console.log(players);
+    console.log(players);
+    
     // Create the participating players' cards
+    if (players.length == 0) {
+      // No players. Display a message
+      return <div className="col-md-6">
+          <p>Be the first one to join! No players are signed up for this event.</p>  
+        </div>
+    }
+
     return players.map ( (item, index) =>
-        <div className="col-md-3 playerCard row" key={index}>
-            <img src="../../images/anon-player.jpg" width="75" className="img-circle img-responsive" />
-            { item.name }
+        <div className="col-md-2 row playerCard" key={index}>
+          {/* <img src="../../images/anon-player.jpg" width="75" className="img-circle img-responsive" /> */}
+          <img src={ item.imageurl } width="75" className="img-circle img-responsive playersImage" />
+          { item.name }        
         </div>
     )
   }

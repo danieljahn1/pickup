@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { eventCreate } from '../redux/actions'
+import { organizerCreate } from '../redux/actions'
 import uniqid from 'uniqid'
 
 
@@ -10,9 +11,10 @@ class EventCreate extends Component {
         super(props)
 
         this.state = {
-            events: [],
+            id: uniqid(),
             event: '',
             date: '',
+            venue: '',
             address: '',
             zip: '',
             category: '',
@@ -24,12 +26,13 @@ class EventCreate extends Component {
     }
 
     eventCreate(e) {
-        if (this.state.event != '' && this.state.date != '' && this.state.address != '' && this.state.zip != '' && this.state.minPlayersNeeded != '' && this.state.maxPlayersNeeded != '' && this.state.message != '') {
-            var eventsCopy = this.state.events.slice();
+        if (this.state.event != '' && this.state.date != '' && this.state.venue != '' && this.state.address != '' && this.state.zip != '' && this.state.minPlayersNeeded != '' && this.state.maxPlayersNeeded != '' && this.state.message != '') {
+            var eventsCopy = this.props.events.slice();
             eventsCopy.unshift({
-                id: uniqid(),
+                id: this.state.id,
                 event: this.state.event,
                 date: this.state.date,
+                venue: this.state.venue,
                 address: this.state.address,
                 zip: this.state.zip,
                 category: this.state.category,
@@ -37,7 +40,13 @@ class EventCreate extends Component {
                 maxPlayersNeeded: this.state.maxPlayersNeeded,
                 message: this.state.message,
             })
+            var oranizersCopy = this.props.oranizers.slice();
+            oranizersCopy.unshift({
+                userId: this.props.loggedInUser[0].id,
+                eventID: this.state.id,
+            })
             this.props.sendToRedux(eventsCopy);
+            this.props.sendToOrganizers(oranizersCopy);
             this.setState({ redirect: true });
             alert("Your event has been created.")
         }
@@ -58,12 +67,16 @@ class EventCreate extends Component {
                 <form className="col-md-12">
                     <div className="form-group">
                         {/* <label htmlFor="event-name">Event Name</label> */}
-                        <input type="text" className="form-control" id="event-name" placeholder="Name of Event" value={this.state.event} onChange={(e) => { this.setState({ event: e.target.value }) }} required />
+                        <input type="text" className="form-control" id="event-name" autoComplete="name" placeholder="Name of Event" value={this.state.event} onChange={(e) => { this.setState({ event: e.target.value }) }} required />
                     </div>
                     <div className="form-group">
                         {/* <label htmlFor="event-date">Date of Birth</label> */}
                         <input type="date" className="form-control" id="event-date" value={this.state.date} onChange={(e) => { this.setState({ date: e.target.value }) }} required />
-                        <small className="form-text text-muted" id="event-date-help">Date of Event</small>
+                        <small className="form-text" id="event-date-help">Date of Event</small>
+                    </div>
+                    <div className="form-group">
+                        {/* <label htmlFor="event-venue">Location Name</label> */}
+                        <input type="text" className="form-control" id="event-venue" placeholder="Location Name" value={this.state.venue} onChange={(e) => { this.setState({ venue: e.target.value }) }} required />
                     </div>
                     <div className="form-group">
                         {/* <label htmlFor="event-address">Address</label> */}
@@ -115,14 +128,16 @@ class EventCreate extends Component {
 
 const mapStateToProps = state => {
     return {
-        events: state.events,
         loggedInUser: state.loggedInUser,
+        events: state.events,
+        oranizers: state.organizers,
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
-        sendToRedux: newEvent => dispatch(eventCreate(newEvent))
+        sendToRedux: newEvent => dispatch(eventCreate(newEvent)),
+        sendToOrganizers: newOrganizer => dispatch(organizerCreate(newOrganizer)),
     }
 }
 
