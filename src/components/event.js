@@ -11,9 +11,17 @@ class Home extends Component {
     super(props);
     
     this.state = {
-      redirect: false
+      redirect: false,
+      joinButtonDisabled: false,
+      eventStatus: ''
      }
     // console.log(this.props.match.params.eventId);
+  }
+
+  componentDidMount() {
+    // Get event's status
+    this.getEventStatus(this.props.match.params.eventId);
+  
   }
 
   render() {
@@ -27,6 +35,8 @@ class Home extends Component {
         <div className="pull-right">
           <Link to="/viewevents"><button id="btnBack" className="btn btn-info btn-xs">Back to Events</button></Link>
         </div>
+        
+
         {// console.log(this.props.events.filter((item) => item.id == this.props.match.params.eventId))
         
           this.props.events
@@ -46,14 +56,14 @@ class Home extends Component {
                     
                     <div className="row innerEventCard">
                       <p className="detailsSubheader">Status: </p>
-                      <p>{ this.getEventStatus(item.id) }</p>                
+                      <p>{ this.state.eventStatus }</p>                
                     </div>
                     
                     <p>Minimum number of players needed: {item.minPlayersNeeded}</p>
                     <p>Maximum number of players needed: {item.maxPlayersNeeded}</p>
                   </div>
                   <div className="row innerEventCard">
-                    <button id="btnJoin" className="btn btn-success btnPadding" onClick={ this.submitJoinEvent.bind(this) }>
+                    <button id="btnJoin" className="btn btn-success btnPadding" disabled={this.state.joinButtonDisabled} onClick={ this.submitJoinEvent.bind(this) }>
                       Join the Event
                     </button>
                   </div>
@@ -167,39 +177,51 @@ class Home extends Component {
     // Create the participating players' cards
     return players.map ( (item, index) =>
         <div className="col-md-3 playerCard row" key={index}>
-            <img src="https://qph.fs.quoracdn.net/main-qimg-7ca600a4562ef6a81f4dc2bd5c99fee9-c" width="75" className="img-circle img-responsive" />
+            <img src="../../images/anon-player.jpg" width="75" className="img-circle img-responsive" />
             { item.name }
         </div>
     )
   }
 
   getEventStatus(eventID) {
-    // Use the eventID to get the participants
-    // If the number of participants is less than the number of max players, then set status to Open, otherwise it is closed
-    
-    let eventIDCounter = 0;
-    for (let i = 0; i < this.props.participants.length; i++) {
+      // Use the eventID to get the participants
+      // If the number of participants is less than the number of max players, then set status to Open, otherwise it is closed
+      
+      let eventIDCounter = 0;
+      for (let i = 0; i < this.props.participants.length; i++) {
         // If the participant's eventID matches, then tally up the eventIDCounter
         if (this.props.participants[i].eventID == eventID) {
-            eventIDCounter += 1;
-            // console.log(this.props.participants[i]);
+          eventIDCounter += 1;
+          // console.log(this.props.participants[i]);
         }            
-    }
+      }
 
-    // Set the event's status. If eventIDCounter <= max number of players, status is open
-    let status = "Closed";
-    let eventCopy =  this.props.events.filter(item => item.id == eventID );
-    
-    if (eventIDCounter < eventCopy[0].maxPlayersNeeded) {
+      // Set the event's status. If eventIDCounter <= max number of players, status is open
+      let status = "This event is full.";
+      let eventCopy =  this.props.events.filter(item => item.id == eventID );
+      
+      if (eventIDCounter < eventCopy[0].maxPlayersNeeded) {
+        // Number of players attending is less than the max, status is open
         // console.log("Number of participants: " + eventIDCounter);
         status = "Open";
-    }
+      }
+      else {
+        // Event is closed. Disable the "Join Now" button
+        this.setState({
+          joinButtonDisabled: true
+        })
+      }
 
+      // Update the status in state
+      this.setState( {      
+        eventStatus: status
+      })
 
-    // console.log("Number of participants: " + eventIDCounter);
-    return status;
-    
-}
+      // console.log("Number of participants: " + eventIDCounter);
+      return status;
+      
+  }
+
 }
 
 const MapStateToProps = state => {
