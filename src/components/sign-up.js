@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
-import uniqid from 'uniqid'
 import { Link, Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { userCreate } from '../redux/actions'
 import { userAuth } from '../redux/actions'
+import uniqid from 'uniqid'
 
 
 class SignUp extends Component {
@@ -18,7 +18,7 @@ class SignUp extends Component {
             addZip: '',
             addEmail: '',
             addPassword: '',
-            redirect: false
+            redirect: false,
         }
     }
 
@@ -37,8 +37,6 @@ class SignUp extends Component {
             this.props.createNewUserRedux(usersArrCopy);
             this.props.logInNewUserRedux(usersArrCopy);
             this.setState({ redirect: true });
-            console.log(this.props.usersArr);
-            // console.log(this.props.loggedInUser);
         }
     }
 
@@ -48,9 +46,9 @@ class SignUp extends Component {
             return <Redirect to="/welcome" />
         }
         return (
-            <div className="col-md-12">
+            <div className="col-md-6 forms">
                 <h2>Join in on the action now!</h2>
-                <div className="col-md-6">
+                <div className="col-md-12">
                     <div className="pull-right">
                         <span>Already have an account?</span>
                         <Link to="/signin"><button className="btn btn-link">Sign In</button></Link>
@@ -64,7 +62,7 @@ class SignUp extends Component {
                             <small className="form-text text-muted" id="add-dob-help">Birth Date</small>
                         </div>
                         <div className="form-group">
-                            <select type="gender" className="form-control" id="add-gender" autoComplete="gender" value={this.state.addGender} onChange={(e) => { this.setState({ addGender: e.target.value }) }}>
+                            <select type="gender" className="form-control" id="add-gender" autoComplete="sex" value={this.state.addGender} onChange={(e) => { this.setState({ addGender: e.target.value }) }}>
                                 <option defaultValue>Gender...</option>
                                 <option>Male</option>
                                 <option>Female</option>
@@ -82,7 +80,7 @@ class SignUp extends Component {
                             <small className="form-text text-muted" id="add-password-help">Must be at least 8 characters long.</small>
                         </div>
                         <small className="form-text text-muted" id="tou-pp-help">By Signing Up, you agree to our <a href="#">Terms of Use</a> and <a href="#">Privacy Policy.</a></small>
-                        <button type="submit" className="btn btn-warning btn-block" onClick={this.userCreate.bind(this, this.state)}>Sign Up</button>
+                        <button type="submit" className="btn btn-success btn-block" onClick={this.userCreate.bind(this, this.state)}>Sign Up</button>
                     </form>
                 </div>
             </div>
@@ -93,7 +91,6 @@ class SignUp extends Component {
 const mapStateToProps = state => {
     return {
         usersArr: state.usersArr,
-        loggedInUser: state.loggedInUser,
     }
 }
 

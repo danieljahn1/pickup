@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 
+
 class Welcome extends Component {
     constructor(props) {
         super(props);
@@ -26,7 +27,6 @@ class Welcome extends Component {
 const mapStateToProps = state => {
     return {
         loggedInUser: state.loggedInUser,
-        usersArr: state.usersArr,
     }
 }
 

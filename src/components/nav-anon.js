@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
-import { Link, Redirect } from 'react-router-dom'
-import { withRouter } from 'react-router-dom'
-
+import { Link, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { userAuth } from '../redux/actions'
 
@@ -13,7 +11,6 @@ class NavAnon extends Component {
         this.state = {
             verifyEmail: '',
             verifyPassword: '',
-            // redirect: false,
         }
     }
 
@@ -25,8 +22,6 @@ class NavAnon extends Component {
             if (objOfEmailFound.length > 0) {
                 if (objOfEmailFound[0].password == this.state.verifyPassword) {
                     this.props.sendToRedux(objOfEmailFound);
-                    // this.setState({ redirect: true });
-                    console.log(this.props.loggedInUser);
                     this.props.history.push("/welcome");
                 } else {
                     alert("Error: 5011 Incorrect Email or Password")
@@ -40,10 +35,6 @@ class NavAnon extends Component {
     }
 
     render() {
-        // const { redirect } = this.state;
-        // if (redirect) {
-        //     return <Redirect to="/welcome" />
-        // }
         return (
             <nav className="col-md-6 pull-right nav-links">
                 <a href="#openModal" className="btn btn-link pull-right">SIGN IN</a>
@@ -66,7 +57,7 @@ class NavAnon extends Component {
                                 <input type="password" className="form-control" id="password-modal" autoComplete="current-password" placeholder="Password" value={this.state.verifyPassword} onChange={(e) => { this.setState({ verifyPassword: e.target.value }) }} required />
                             </div>
                             <h1></h1>
-                            <button href="#close" type="submit" className="btn btn-warning btn-block" onClick={this.userAuth.bind(this, this.state)}>Sign In</button>
+                            <button href="#close" type="submit" className="btn btn-success btn-block" onClick={this.userAuth.bind(this, this.state)}>Sign In</button>
                         </form>
                     </div>
                 </div>
@@ -77,7 +68,6 @@ class NavAnon extends Component {
 
 const mapStateToProps = state => {
     return {
-        loggedInUser: state.loggedInUser,
         usersArr: state.usersArr,
     }
 }

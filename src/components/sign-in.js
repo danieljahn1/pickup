@@ -24,7 +24,6 @@ class SignIn extends Component {
                 if (objOfEmailFound[0].password == this.state.verifyPassword) {
                     this.props.sendToRedux(objOfEmailFound);
                     this.setState({ redirect: true });
-                    console.log(this.props.loggedInUser);
                 } else {
                     alert("Error: 5011 Incorrect Email or Password")
                 }
@@ -42,9 +41,9 @@ class SignIn extends Component {
             return <Redirect to="/welcome" />
         }
         return (
-            <div className="col-md-12">
-                <h2>Sign in to join and create events</h2>
-                <div className="col-md-6">
+            <div className="col-md-6 forms">
+                <h2>Sign in to join and create events . . .</h2>
+                <div className="col-md-12">
                     <div className="pull-right">
                         <span>Don't have an account?</span>
                         <Link to="/signup"><button className="btn btn-link">Sign Up</button></Link>
@@ -58,7 +57,7 @@ class SignIn extends Component {
                             {/* <label htmlFor="password">Password</label> */}
                             <input type="password" className="form-control" id="password" autoComplete="current-password" placeholder="Password" value={this.state.verifyPassword} onChange={(e) => { this.setState({ verifyPassword: e.target.value }) }} required />
                         </div>
-                        <button type="submit" className="btn btn-warning btn-block" onClick={this.userAuth.bind(this, this.state)}>Sign In</button>
+                        <button type="submit" className="btn btn-success btn-block" onClick={this.userAuth.bind(this, this.state)}>Sign In</button>
                     </form>
                 </div>
             </div>
@@ -68,7 +67,6 @@ class SignIn extends Component {
 
 const mapStateToProps = state => {
     return {
-        loggedInUser: state.loggedInUser,
         usersArr: state.usersArr,
     }
 }

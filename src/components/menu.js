@@ -1,13 +1,14 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import NavAnon from './nav-anon';
-import NavKnown from './nav-known';
+import NavAnon from './nav-anon'
+import NavKnown from './nav-known'
+
 
 class Menu extends Component {
     constructor(props) {
-        super(props);
-        this.state = {  }
+        super(props)
     }
+
     render() {
         if (this.props.loggedInUser.length == 0) {
             return (
