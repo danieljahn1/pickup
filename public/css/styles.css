@@ -146,6 +146,7 @@ p.detailsSubheader {
 
 #nav-bar {
   background: rgba(92,184,92,0.6);
+  /* background: rgba(255,140,0,0.6); */
 }
 
 #nav-bar-text {
@@ -170,7 +171,7 @@ p.detailsSubheader {
 
 .forms {
   color: white;
-  background: rgba(255,140,0,0.5);
+  background: rgba(0,0,0,0.5);
   padding: 20px 40px 50px 50px;
   border-radius: 35px;
 }

@@ -116,7 +116,10 @@ const initialState = {
             minPlayersNeeded: 1,
             maxPlayersNeeded: 0,
             message: "Let's play skins for some minor money. Low to mid level handicaps."
-        }
+        },
+        {
+            eventLastViewed: [],
+        },
     ]
 }
 
