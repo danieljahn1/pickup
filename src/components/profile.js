@@ -5,18 +5,32 @@ class Profile extends React.Component {
         this.state = {}
     }
     return() {
-        render(
-            <div>
-                <img src={props.image} id="profile-avatar" alt="Image for Profile"></img>
-                <h1>User Profile: {props.person.name}</h1>
-                <div class="form-control">
-                    <label class="header">Profile Photo:</label>
+        render(        
+            <div class="signIn">
+                <form>
 
-                    <input id="image" type="file" name="profile_photo" placeholder="Photo" required="" capture></input>
-                </div>
-                <div className="Gender">{props.gender}</div>
-                <div className="Birthday">{props.birthday}</div>
-                <div className="Location">{props.location}</div>
+                    <div class="form-control"> 
+                        <label class="header">Profile Photo:</label>
+                        <input id="image" type="file" name="profile_photo" placeholder="Photo" required="" capture></input>
+                    </div>
+
+                    <div class="form-control"> 
+                        <label class="header">Store Name :</label>
+                        <input type="text" id="store_name" name="store_name" placeholder="Store Name" title="Please enter your First Name" required=""></input>
+                    </div>
+
+                    <div class="form-control">
+                        <label class="header">Store Type :</label>
+                        <input type="text" id="store_type" name="store_type" placeholder="Store Type" title="Please enter your Last Name" required=""></input>
+                     </div>
+                     
+                    <div class="form-control">  
+                        <label class="header">Contact Email :</label>   
+                        <input type="email" id="contact_email" name="contact_email" placeholder="Contact Email" required=""></input>
+                    </div>  
+
+                         <input type="submit" class="register" value="Register"></input>
+                </form>
             </div>
         )
     }

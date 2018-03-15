@@ -11,7 +11,7 @@ class Welcome extends Component {
         return (
             <div className="col-md-12">
                 <div className="col-md-12">
-                    <h3>Welcome {this.props.loggedInUser[0].name}</h3>
+                    {/* <h3>Welcome {this.props.loggedInUser[0].name}</h3> */}
                 </div>
                 <div className="col-md-6">
                     <Link to="/createevent"><button className="btn btn-lg">Start A New Event</button></Link>

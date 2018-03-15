@@ -129,6 +129,13 @@ const rootReducer = (state = initialState, action) => {
             loggedInUser: action.payload
         }
     }
+    if (action.type == "USER_LOG_IN") {
+        state - {
+            ...state,
+            loggedInUser: action.payload
+        }
+    }
+
     if (action.type == "USER_LOG_OUT") {
         state = {
             ...state,

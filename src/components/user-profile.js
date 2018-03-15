@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Profile from './profile'
+import SignUp from './signup'
 
 class UserProfile extends Component {
     constructor(props) {

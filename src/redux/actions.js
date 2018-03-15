@@ -2,6 +2,7 @@ export const eventCreate = newEvent => ({type: 'EVENT_CREATE', payload: newEvent
 export const userCreate = newUser => ({type: 'USER_CREATE', payload: newUser})
 export const userAuth = logInUser => ({type: 'USER_AUTH', payload: logInUser})
 export const userLogOut = logOutUser => ({type: 'USER_LOG_OUT', payload: logOutUser})
+export const userLogIn = logInUser => ({type: 'USER_LOG_IN' , payload: logInUser})
 
 export const loadOtherEvents = events => ({ type: 'LOAD_EVENTS', payload: events  })
 export const loadOtherUsers = users => ({ type: 'LOAD_OTHER_USERS', payload: users })
