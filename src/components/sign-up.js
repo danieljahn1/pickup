@@ -59,7 +59,7 @@ class SignUp extends Component {
                         </div>
                         <div className="form-group">
                             <input type="date" className="form-control" id="add-dob" autoComplete="birthdate" placeholder="Date of Birth" value={this.state.addDob} onChange={(e) => { this.setState({ addDob: e.target.value }) }} />
-                            <small className="form-text text-muted" id="add-dob-help">Birth Date</small>
+                            <small className="form-text" id="add-dob-help">Birth Date</small>
                         </div>
                         <div className="form-group">
                             <select type="gender" className="form-control" id="add-gender" autoComplete="sex" value={this.state.addGender} onChange={(e) => { this.setState({ addGender: e.target.value }) }}>
@@ -77,10 +77,11 @@ class SignUp extends Component {
                         </div>
                         <div className="form-group">
                             <input type="password" pattern=".{8,}" className="form-control" id="add-password" autoComplete="new-password" placeholder="Password" value={this.state.addPassword} onChange={(e) => { this.setState({ addPassword: e.target.value }) }} required />
-                            <small className="form-text text-muted" id="add-password-help">Must be at least 8 characters long.</small>
+                            <small className="form-text" id="add-password-help">Must be at least 8 characters long.</small>
                         </div>
-                        <small className="form-text text-muted" id="tou-pp-help">By Signing Up, you agree to our <a href="#">Terms of Use</a> and <a href="#">Privacy Policy.</a></small>
                         <button type="submit" className="btn btn-success btn-block" onClick={this.userCreate.bind(this, this.state)}>Sign Up</button>
+                        <h1></h1>
+                        <small className="form-text pull-right" id="tou-pp-help">By Signing Up, you agree to our <a href="#">Terms of Use</a> and <a href="#">Privacy Policy</a>.</small>
                     </form>
                 </div>
             </div>

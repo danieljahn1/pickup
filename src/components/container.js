@@ -10,6 +10,7 @@ import EventCreate from './event-create'
 import EventList from './event-list'
 import Event from './event'
 import TestRedux from './testredux'
+import userProfile from './user-profile'
 
 
 class Container extends Component {
@@ -31,6 +32,7 @@ class Container extends Component {
                     <Route path='/createevent' component={EventCreate} />
                     <Route path='/viewevents' component={EventList} />
                     <Route path='/eventdetails/:eventId' component={Event} />
+                    <Route path='/userProfile/' component={userProfile} />
                 </Switch>
             </div>
         )

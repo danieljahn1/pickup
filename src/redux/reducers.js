@@ -2,43 +2,54 @@ import uniqid from 'uniqid'
 
 const initialState = {
     loggedInUser: [],
-    usersArr: [{
-        id: 10,
-        name: 'Andrew Anderson',
-        dob: '',
-        gender: 'Male',
-        zip: '92689',
-        email: 'aanderson@email.com',
-        password: 'abc123',
-        imageurl: 'http://www.findthatlogo.com/wp-content/gallery/nfl-san-francisco-49ers-logos/san-francisco-49ers-logo.gif'
-    }, {
-        id: 11,
-        name: 'Lewis Aguilar',
-        dob: '',
-        gender: 'Male',
-        zip: '92868',
-        email: 'laguilar@email.com',
-        password: 'abc123',
-        imageurl: 'https://www.cycleworld.com/sites/cycleworld.com/files/styles/325_4x3/public/images/2018/03/2.-cal_crutchlow_teaser.jpg?itok=rUP3co2T&fc=50,50'
-    }, {
-        id: 12,
-        name: 'Eric Masinas',
-        dob: '',
-        gender: 'Male',
-        zip: '91505',
-        email: 'emasinas@email.com',
-        password: 'abc123',
-        imageurl: 'https://cconnect.s3.amazonaws.com/wp-content/uploads/2014/10/Los-Angeles-Kings-2014-Stanley-Cup-Ring.jpg'
-    }, {
-        id: 13,
-        name: 'Daniel Ahn',
-        dob: '',
-        gender: 'Male',
-        zip: '92804',
-        email: 'djahn.shop@outlook.com',
-        password: 'abc123',
-        imageurl: 'https://cdn.bleacherreport.net/images/team_logos/328x328/detroit_lions.png'
-    }],
+    usersArr: [
+        {
+            id: 10,
+            name: 'Andrew Anderson',
+            dob: '',
+            gender: 'Male',
+            zip: '92689',
+            email: 'aanderson@email.com',
+            password: 'abc123',
+            imageurl: 'http://www.findthatlogo.com/wp-content/gallery/nfl-san-francisco-49ers-logos/san-francisco-49ers-logo.gif'
+        },
+        {
+            id: 11,
+            name: 'Lewis Aguilar',
+            dob: '',
+            gender: 'Male',
+            zip: '92868',
+            email: 'laguilar@email.com',
+            password: 'abc123',
+            imageurl: 'https://www.cycleworld.com/sites/cycleworld.com/files/styles/325_4x3/public/images/2018/03/2.-cal_crutchlow_teaser.jpg?itok=rUP3co2T&fc=50,50'
+        },
+        {
+            id: 12,
+            name: 'Eric Masinas',
+            dob: '',
+            gender: 'Male',
+            zip: '91505',
+            email: 'emasinas@email.com',
+            password: 'abc123',
+            imageurl: 'https://cconnect.s3.amazonaws.com/wp-content/uploads/2014/10/Los-Angeles-Kings-2014-Stanley-Cup-Ring.jpg'
+        },
+        {
+            id: 13,
+            name: 'Daniel Ahn',
+            dob: '',
+            gender: 'Male',
+            zip: '92804',
+            email: 'djahn.shop@outlook.com',
+            password: 'abc123',
+            imageurl: 'https://cdn.bleacherreport.net/images/team_logos/328x328/detroit_lions.png'
+        }
+    ],
+    organizers: [
+        {
+            userId: 13,
+            eventID: 2
+        }
+    ],
     participants: [
         {
             userId: 10,
@@ -77,7 +88,8 @@ const initialState = {
             id: 1,
             event: "Pickup basketball",
             date: "3/19/2018",
-            address: "Quail Hill Community Park",
+            venue: "Quail Hill Community Park",
+            address: "35 Shady Canyon Dr",
             zip: "92603",
             category: "Basketball",
             minPlayersNeeded: 4,
@@ -88,7 +100,8 @@ const initialState = {
             id: 2,
             event: "Flag football tournament",
             date: "3/18/2018",
-            address: "Orange County Great Park",
+            venue: "Orange County Great Park",
+            address: "6950 Marine Way",
             zip: "92618",
             category: "Flag Football",
             minPlayersNeeded: 20,
@@ -99,13 +112,17 @@ const initialState = {
             id: 3,
             event: "Golf money game",
             date: "3/31/2018",
-            address: "Oak Creek Golf Club",
+            venue: "Oak Creek Golf Club",
+            address: "1 Golf Club Dr",
             zip: "92618",
             category: "Golf",
             minPlayersNeeded: 1,
             maxPlayersNeeded: 0,
             message: "Let's play skins for some minor money. Low to mid level handicaps."
-        }
+        },
+        {
+            eventLastViewed: [],
+        },
     ]
 }
 
@@ -113,7 +130,13 @@ const rootReducer = (state = initialState, action) => {
     if (action.type == "EVENT_CREATE") {
         state = {
             ...state,
-            events: state.events.concat(action.payload)
+            events: action.payload,
+        }
+    }
+    if (action.type == "ORGANIZER_CREATE") {
+        state = {
+            ...state,
+            organizers: action.payload,
         }
     }
     if (action.type == "USER_CREATE") {
