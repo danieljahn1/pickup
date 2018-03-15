@@ -19,6 +19,7 @@ class EventCreate extends Component {
             minPlayersNeeded: '',
             maxPlayersNeeded: '',
             message: '',
+            redirect: false,
         }
     }
 
@@ -43,6 +44,9 @@ class EventCreate extends Component {
     }
 
     render() {
+        if (this.props.loggedInUser.length == 0) {
+            return <Redirect to="/signin" />
+        }
         const { redirect } = this.state;
         if (redirect) {
             return <Redirect to="/viewevents" />
@@ -111,7 +115,8 @@ class EventCreate extends Component {
 
 const mapStateToProps = state => {
     return {
-        events: state.events
+        events: state.events,
+        loggedInUser: state.loggedInUser,
     }
 }
 

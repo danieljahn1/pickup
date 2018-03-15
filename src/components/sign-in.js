@@ -42,7 +42,7 @@ class SignIn extends Component {
         }
         return (
             <div className="col-md-6 forms">
-                <h2>Sign in to join and create events . . .</h2>
+                <h2>Sign in to join and create events ...</h2>
                 <div className="col-md-12">
                     <div className="pull-right">
                         <span>Don't have an account?</span>
