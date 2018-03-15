@@ -57,14 +57,32 @@ body {
 
 /* EM styles */
 .eventCard  {
-  margin: 5px;
-  background-color: #ededed;
+  margin: 2px;
+  background-color: #fafafa;
   border: 1px solid black;
   border-radius: 10px;
 }
 
+.divLink {
+  color: black;
+  text-decoration: none;
+}
+
 .innerEventCard {
   padding: 5px 10px;
+}
+
+.narrowResults {
+  color: #fff;
+}
+
+p.eventCategory {
+  font-size: 1em;
+  margin-bottom: 2px;
+}
+
+h3.eventName {
+  margin: 0 0;
 }
 
 .btnPadding {
@@ -77,33 +95,72 @@ p.message {
 
 p.detailsSubheader {
   font-weight: bold;
+  margin-bottom: 2px;
 }
 
 #selectFilter {
   margin-left: 15px;
 }
 
-.playerCard {
-  background-color: #fff;
+.playersContainer {
+  margin: 50px 0 10px 0;
   border: 1px solid black;
-  margin: 0 5px;
-  padding: 3px;
+  background-color: rgba(255,255,255,0.5);
+  padding: 0;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
 }
 
 .playersHeader {
-  background-color: #e4e4e4;
-  border: 1px solid navy;
-  margin: 10px 0;
+  background-color: rgba(255,140,0,0.9);
+  border: 1px solid black;
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
   padding: 5px;
+  color: #fff;
+}
+
+.playersImage {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.attendeesContainer {
+  margin: 5px auto;
+}
+
+.playerCard {
+  background-color: #fff;
+  border: 1px solid black;
+  margin: 25px;
+  padding: 3px;
+  height: 100px;
+  text-align: center;
+  border-radius: 5px;
+}
+
+h3.playerTitle {
+  margin: 0px 5px;
 }
 
 .eventdetails {
-  margin-top: 25px;
+  margin-top: 10px;
+}
+#eventdetailsbg {
+  color: black;
+  background: rgba(0,0,0,0.4);
+  padding: 25px;
+  border-radius: 35px;
+  margin-top: 10px;
 }
 .eventdetail-left {
   background-color: #fff;
-  margin: 5px;
-  margin-right: 50px;
+  /* margin: 5px; */
+  margin-right: 15px;
   /* border: 1px solid black; */
   border-radius: 10px;
 }
@@ -131,12 +188,6 @@ p.detailsSubheader {
   padding: 3px;
 }
 
-#eventdetailsbg {
-  color: black;
-  background: rgba(0,0,0,0.4);
-  padding: 50px;
-  border-radius: 35px;
-}
 /* End of EM styles */
 
 .nav-bar-div {
