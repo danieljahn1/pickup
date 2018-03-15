@@ -10,7 +10,7 @@ const initialState = {
         zip: '92689',
         email: 'aanderson@email.com',
         password: 'abc123',
-    },{
+    }, {
         id: 11,
         name: 'Lewis Aguilar',
         dob: '',
@@ -18,7 +18,7 @@ const initialState = {
         zip: '92868',
         email: 'laguilar@email.com',
         password: 'abc123',
-    },{
+    }, {
         id: 12,
         name: 'Eric Masinas',
         dob: '',
@@ -26,7 +26,7 @@ const initialState = {
         zip: '91505',
         email: 'emasinas@email.com',
         password: 'abc123',
-    },{
+    }, {
         id: 13,
         name: 'Daniel Ahn',
         dob: '',
@@ -86,7 +86,7 @@ const initialState = {
             date: "3/18/2018",
             address: "Orange County Great Park",
             zip: "92618",
-            category: "Football",
+            category: "Flag Football",
             minPlayersNeeded: 20,
             maxPlayersNeeded: 80,
             message: "All individuals and teams welcome to play and enter into a tournament. All skill levels. Individual signups will be placed onto a team."
@@ -99,7 +99,7 @@ const initialState = {
             zip: "92618",
             category: "Golf",
             minPlayersNeeded: 1,
-            maxPlayersNeeded: 1,
+            maxPlayersNeeded: 0,
             message: "Let's play skins for some minor money. Low to mid level handicaps."
         }
     ]
@@ -135,14 +135,20 @@ const rootReducer = (state = initialState, action) => {
     if (action.type == "LOAD_EVENTS") {
         // Load the events from the JSON file
         state = {
-            ... state,
+            ...state,
             events: action.payload
         }
     }
     if (action.type == "LOAD_EVENTS_FLAG") {
         state = {
-            ... state,
+            ...state,
             loadedEventsJsonFile: action.payload
+        }
+    }
+    if (action.type == "ADD_ATTENDEE") {
+        state = {
+            ... state,
+            participants: action.payload
         }
     }
     return state;

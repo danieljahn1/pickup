@@ -30,7 +30,7 @@
 	"zip": "99999",
 	"category": "Hockey",
 	"minPlayersNeeded": 2,
-	"maxPlayersNeeded": 2,
+	"maxPlayersNeeded": 0,
 	"message": "Need two players at most for upper level gold team."
 	},
 	{
