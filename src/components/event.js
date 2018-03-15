@@ -31,7 +31,7 @@ class Home extends Component {
         return <Redirect to="/signup" />
     }
     return (
-      <div className="col-md-12 container eventdetails">
+      <div className="col-md-12 container eventdetails" id="eventdetailsbg">
         <div className="pull-right">
           <Link to="/viewevents"><button id="btnBack" className="btn btn-info btn-xs">Back to Events</button></Link>
         </div>

@@ -10,6 +10,7 @@ const initialState = {
         zip: '92689',
         email: 'aanderson@email.com',
         password: 'abc123',
+        imageurl: 'http://www.findthatlogo.com/wp-content/gallery/nfl-san-francisco-49ers-logos/san-francisco-49ers-logo.gif'
     }, {
         id: 11,
         name: 'Lewis Aguilar',
@@ -18,6 +19,7 @@ const initialState = {
         zip: '92868',
         email: 'laguilar@email.com',
         password: 'abc123',
+        imageurl: 'https://www.cycleworld.com/sites/cycleworld.com/files/styles/325_4x3/public/images/2018/03/2.-cal_crutchlow_teaser.jpg?itok=rUP3co2T&fc=50,50'
     }, {
         id: 12,
         name: 'Eric Masinas',
@@ -26,6 +28,7 @@ const initialState = {
         zip: '91505',
         email: 'emasinas@email.com',
         password: 'abc123',
+        imageurl: 'https://cconnect.s3.amazonaws.com/wp-content/uploads/2014/10/Los-Angeles-Kings-2014-Stanley-Cup-Ring.jpg'
     }, {
         id: 13,
         name: 'Daniel Ahn',
@@ -34,6 +37,7 @@ const initialState = {
         zip: '92804',
         email: 'djahn.shop@outlook.com',
         password: 'abc123',
+        imageurl: 'https://cdn.bleacherreport.net/images/team_logos/328x328/detroit_lions.png'
     }],
     participants: [
         {

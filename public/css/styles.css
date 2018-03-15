@@ -130,6 +130,13 @@ p.detailsSubheader {
   margin: 0 5px;
   padding: 3px;
 }
+
+#eventdetailsbg {
+  color: black;
+  background: rgba(0,0,0,0.4);
+  padding: 50px;
+  border-radius: 35px;
+}
 /* End of EM styles */
 
 .nav-bar-div {
