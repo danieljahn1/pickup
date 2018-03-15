@@ -125,6 +125,11 @@ const rootReducer = (state = initialState, action) => {
         state = {
             ...state,
             events: action.payload,
+        }
+    }
+    if (action.type == "ORGANIZER_CREATE") {
+        state = {
+            ...state,
             organizers: action.payload,
         }
     }
