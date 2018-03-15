@@ -60,7 +60,7 @@ class Home extends Component {
                     </div>
                     
                     <p>Minimum number of players needed: {item.minPlayersNeeded}</p>
-                    <p>Maximum number of players needed: {item.maxPlayersNeeded}</p>
+                    <p>Players still needed: {item.maxPlayersNeeded}</p>
                   </div>
                   <div className="row innerEventCard">
                     <button id="btnJoin" className="btn btn-success btnPadding" disabled={this.state.joinButtonDisabled} onClick={ this.submitJoinEvent.bind(this) }>
@@ -141,6 +141,14 @@ class Home extends Component {
 
           // console.log(getEventCopy);
           getEventCopy[0].maxPlayersNeeded -= 1;
+
+          // If the max players is 0, then disable the "Join Now" button
+          if (getEventCopy[0].maxPlayersNeeded == 0) {
+            this.setState({
+              eventStatus: "This event is full.",
+              joinButtonDisabled: true
+            })
+          }
         }
       }
       
@@ -196,11 +204,11 @@ class Home extends Component {
         }            
       }
 
-      // Set the event's status. If eventIDCounter <= max number of players, status is open
+      // Set the event's status. If  max number of players is zero, status is open
       let status = "This event is full.";
       let eventCopy =  this.props.events.filter(item => item.id == eventID );
       
-      if (eventIDCounter < eventCopy[0].maxPlayersNeeded) {
+      if (eventCopy[0].maxPlayersNeeded > 0) {
         // Number of players attending is less than the max, status is open
         // console.log("Number of participants: " + eventIDCounter);
         status = "Open";
@@ -213,7 +221,7 @@ class Home extends Component {
       }
 
       // Update the status in state
-      this.setState( {      
+      this.setState( {
         eventStatus: status
       })
 

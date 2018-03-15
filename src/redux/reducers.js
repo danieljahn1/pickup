@@ -77,7 +77,7 @@ const initialState = {
             zip: "92603",
             category: "Basketball",
             minPlayersNeeded: 4,
-            maxPlayersNeeded: 10,
+            maxPlayersNeeded: 6,
             message: "Come out to play ball. Any levels"
         },
         {
@@ -88,7 +88,7 @@ const initialState = {
             zip: "92618",
             category: "Flag Football",
             minPlayersNeeded: 20,
-            maxPlayersNeeded: 80,
+            maxPlayersNeeded: 76,
             message: "All individuals and teams welcome to play and enter into a tournament. All skill levels. Individual signups will be placed onto a team."
         },
         {
@@ -146,6 +146,20 @@ const rootReducer = (state = initialState, action) => {
         }
     }
     if (action.type == "ADD_ATTENDEE") {
+        state = {
+            ... state,
+            participants: action.payload
+        }
+    }
+    if (action.type == "LOAD_OTHER_USERS") {
+        // Load users from JSON file
+        state = {
+            ... state,
+            usersArr: action.payload
+        }
+    }
+    if (action.type == "LOAD_OTHER_PARTICIPANTS") {
+        // Load participants from JSON file
         state = {
             ... state,
             participants: action.payload
