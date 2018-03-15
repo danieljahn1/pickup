@@ -1,35 +1,58 @@
-[
 {
-	"id": 1000,
-	"name": "John Doe",
-	"dob": "",
-	"gender": "Male",
-	"zip": "90015",
-	"email": "person1@test.com",
-	"password": "password1"
-},
-{
-	"id": 1001,
-	"name": "Jane Doe",
-	"dob": "",
-	"gender": "Female",
-	"zip": "92602",
-	"email": "jd@email.com",
-	"password": "Password1"
-},
-{
-	"id": 1002,
-	"name": "Miles Davis",
-	"dob": "",
-	"gender": "Male",
-	"zip": "92602",
-	"email": "miles@email.com",
-	"password": "Trumpet"
-}
-
-
-
-
-
-
+"users" : [
+	{
+		"id": 1000,
+		"name": "John Doe",
+		"dob": "",
+		"gender": "Male",
+		"zip": "90015",
+		"email": "person1@test.com",
+		"password": "password1"
+	},
+	{
+		"id": 1001,
+		"name": "Jane Doe",
+		"dob": "",
+		"gender": "Female",
+		"zip": "92602",
+		"email": "jd@email.com",
+		"password": "Password1"
+	},
+	{
+		"id": 1002,
+		"name": "Miles Davis",
+		"dob": "",
+		"gender": "Male",
+		"zip": "92602",
+		"email": "miles@email.com",
+		"password": "Trumpet"
+	},
+	{
+		"id": 1003,
+		"name": "Karim",
+		"dob": "",
+		"gender": "Male",
+		"zip": "11122",
+		"email": "k@email.com",
+		"password": "abc1234"
+	},
+	{
+		"id": 1004,
+		"name": "Dee Reynolds",
+		"dob": "",
+		"gender": "Female",
+		"zip": "11122",
+		"email": "dee@email.com",
+		"password": "abc1234"
+	},
+	{
+		"id": 1005,
+		"name": "Mantis Tobaggon",
+		"dob": "",
+		"gender": "Male",
+		"zip": "22222",
+		"email": "mt@email.com",
+		"password": "abc1234"
+	}
 ]
+}

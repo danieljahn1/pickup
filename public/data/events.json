@@ -41,8 +41,19 @@
 	"zip": "99999",
 	"category": "Walking",
 	"minPlayersNeeded": 1,
-	"maxPlayersNeeded": 4,
+	"maxPlayersNeeded": 2,
 	"message": "Looking to add a few members to our weekly walks near the lake."
+	},
+	{
+	"id": "90004",
+	"event": "Ping pong doubles",
+	"date": "4/1/2018",
+	"address": "Redwood Code Academy",
+	"zip": "92705",
+	"category": "Ping Pong",
+	"minPlayersNeeded": 1,
+	"maxPlayersNeeded": 1,
+	"message": "Doubles ping pong tournament."
 	}
 ]
 }
