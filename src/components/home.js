@@ -13,7 +13,7 @@ class Home extends Component {
             <div className="col-md-12">
                 <div className="col-md-6" id="home" >
                     <p className="lead home-message" >Our goal is to make playing your favorite activities as seamless as possible. We want to make it easy for you to find events and discover new friends on the app.</p>
-                    <Link to="/signup"><button className="btn btn-lg btn-block btn-success"><h2>Sing up today</h2></button></Link>
+                    <Link to="/signup"><button className="btn btn-lg btn-warning btn-block"><h2>Sign up today!</h2></button></Link>
                 </div>
             </div>
         )

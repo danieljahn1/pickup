@@ -12,8 +12,8 @@ class NavBar extends Component {
         return (
             <div className="col-md-12">
                 <nav className="navbar navbar-default navbar-fixed-top" id="nav-bar">
-                    {/* <img src="../public/images/pickUp_logo.png" alt="Company Logo"/> */}
-                    <Link to="/"><span className="navbar-brand" href="#" id="nav-bar-text">pickUp</span></Link>
+                    <Link to="/"><img className="logo" src="../../images/pickUp_logo_orange_green.png" alt="Company Logo"/></Link>
+                    {/* <Link to="/"><span className="navbar-brand" href="#" id="nav-bar-text">pickUp</span></Link> */}
                     <Menu />
                 </nav>
             </div>

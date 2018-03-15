@@ -2,39 +2,50 @@ import uniqid from 'uniqid'
 
 const initialState = {
     loggedInUser: [],
-    usersArr: [{
-        id: 10,
-        name: 'Andrew Anderson',
-        dob: '',
-        gender: 'Male',
-        zip: '92689',
-        email: 'aanderson@email.com',
-        password: 'abc123',
-    }, {
-        id: 11,
-        name: 'Lewis Aguilar',
-        dob: '',
-        gender: 'Male',
-        zip: '92868',
-        email: 'laguilar@email.com',
-        password: 'abc123',
-    }, {
-        id: 12,
-        name: 'Eric Masinas',
-        dob: '',
-        gender: 'Male',
-        zip: '91505',
-        email: 'emasinas@email.com',
-        password: 'abc123',
-    }, {
-        id: 13,
-        name: 'Daniel Ahn',
-        dob: '',
-        gender: 'Male',
-        zip: '92804',
-        email: 'djahn.shop@outlook.com',
-        password: 'abc123',
-    }],
+    usersArr: [
+        {
+            id: 10,
+            name: 'Andrew Anderson',
+            dob: '',
+            gender: 'Male',
+            zip: '92689',
+            email: 'aanderson@email.com',
+            password: 'abc123',
+        },
+        {
+            id: 11,
+            name: 'Lewis Aguilar',
+            dob: '',
+            gender: 'Male',
+            zip: '92868',
+            email: 'laguilar@email.com',
+            password: 'abc123',
+        },
+        {
+            id: 12,
+            name: 'Eric Masinas',
+            dob: '',
+            gender: 'Male',
+            zip: '91505',
+            email: 'emasinas@email.com',
+            password: 'abc123',
+        },
+        {
+            id: 13,
+            name: 'Daniel Ahn',
+            dob: '',
+            gender: 'Male',
+            zip: '92804',
+            email: 'djahn.shop@outlook.com',
+            password: 'abc123',
+        }
+    ],
+    organizers: [
+        {
+            userId: 13,
+            eventID: 2
+        }
+    ],
     participants: [
         {
             userId: 10,
@@ -109,7 +120,8 @@ const rootReducer = (state = initialState, action) => {
     if (action.type == "EVENT_CREATE") {
         state = {
             ...state,
-            events: state.events.concat(action.payload)
+            events: action.payload,
+            organizers: action.payload,
         }
     }
     if (action.type == "USER_CREATE") {
