@@ -7,7 +7,8 @@
 		"gender": "Male",
 		"zip": "90015",
 		"email": "person1@test.com",
-		"password": "password1"
+		"password": "password1",
+		"imageurl": "https://cdn5.f-cdn.com/contestentries/419315/17615651/5758567cad64d_thumb900.jpg"
 	},
 	{
 		"id": 1001,
@@ -16,7 +17,8 @@
 		"gender": "Female",
 		"zip": "92602",
 		"email": "jd@email.com",
-		"password": "Password1"
+		"password": "Password1",
+		"imageurl": "https://us.123rf.com/450wm/jemastock/jemastock1702/jemastock170208205/72372430-assorted-sports-people-basketball-volleyball-icon-image-vector-illustration-design.jpg?ver=6"
 	},
 	{
 		"id": 1002,
@@ -25,7 +27,8 @@
 		"gender": "Male",
 		"zip": "92602",
 		"email": "miles@email.com",
-		"password": "Trumpet"
+		"password": "Trumpet",
+		"imageurl": "https://cdn5.f-cdn.com/contestentries/419315/17615651/5758567cad64d_thumb900.jpg"
 	},
 	{
 		"id": 1003,
@@ -34,7 +37,8 @@
 		"gender": "Male",
 		"zip": "11122",
 		"email": "k@email.com",
-		"password": "abc1234"
+		"password": "abc1234",
+		"imageurl": "https://cdn5.f-cdn.com/contestentries/419315/17615651/5758567cad64d_thumb900.jpg"
 	},
 	{
 		"id": 1004,
@@ -43,7 +47,8 @@
 		"gender": "Female",
 		"zip": "11122",
 		"email": "dee@email.com",
-		"password": "abc1234"
+		"password": "abc1234",
+		"imageurl": "https://us.123rf.com/450wm/jemastock/jemastock1702/jemastock170208205/72372430-assorted-sports-people-basketball-volleyball-icon-image-vector-illustration-design.jpg?ver=6"
 	},
 	{
 		"id": 1005,
@@ -52,7 +57,8 @@
 		"gender": "Male",
 		"zip": "22222",
 		"email": "mt@email.com",
-		"password": "abc1234"
+		"password": "abc1234",
+		"imageurl": "https://cdn5.f-cdn.com/contestentries/419315/17615651/5758567cad64d_thumb900.jpg"
 	}
 ]
 }
