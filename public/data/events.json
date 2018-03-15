@@ -59,6 +59,18 @@
 	"minPlayersNeeded": 1,
 	"maxPlayersNeeded": 1,
 	"message": "Doubles ping pong tournament."
+	},
+	{
+	"id": "90005",
+	"event": "A long ride through the city",
+	"date": "4/14/2018",
+	"venue": "Fullerton Bicycles",
+	"address": "424 E Commonwealth Ave",
+	"zip": "92832",
+	"category": "Cycling",
+	"minPlayersNeeded": 1,
+	"maxPlayersNeeded": 15,
+	"message": "Starts at Fullerton Bicycles. We'll ride throughout the city of Fullerton. All people are welcome!"
 	}
 ]
 }

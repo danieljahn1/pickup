@@ -71,11 +71,10 @@ class Home extends Component {
                 <div className="col-md-4 eventCard">
                   <div className="row innerEventCard">
                     <p className="detailsSubheader">{item.venue}</p>                    
-                    <p>{item.address}</p>
-                    <p>{item.zip}</p>
+                    <p>{item.address} {item.zip}</p>
 
-                    <img src="https://www.mapquestapi.com/staticmap/v5/map?locations=irvine+lake+ca&zoom=14&type=map&key=W9pxDBj1ipgcPfMKN4dnxOkpoPHpknHN" className="img-responsive" />
-                    { this.getMap(item.address, item.zip) }
+                    <img src={ this.getMap(item.address, item.zip) } className="img-responsive" />
+                    {/* { this.getMap(item.address, item.zip) } */}
                   </div>
                                   
                 </div>
@@ -103,9 +102,8 @@ class Home extends Component {
     address = address.replace(/ /g, "+");
     url += address + "+" + zipCode;
 
-    console.log(url);
-
-
+    // console.log(url);
+    return url;
   }
 
   submitJoinEvent(e) {
@@ -197,9 +195,16 @@ class Home extends Component {
             players.push(usersArrCopy[0]);            
         }
     }
-
-    // console.log(players);
+    console.log(players);
+    
     // Create the participating players' cards
+    if (players.length == 0) {
+      // No players. Display a message
+      return <div className="col-md-6">
+          <p>Be the first one to join! No players are signed up for this event.</p>  
+        </div>
+    }
+
     return players.map ( (item, index) =>
         <div className="col-md-2 row playerCard" key={index}>
           {/* <img src="../../images/anon-player.jpg" width="75" className="img-circle img-responsive" /> */}
