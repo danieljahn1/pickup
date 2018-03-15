@@ -71,9 +71,12 @@ class Home extends Component {
                 
                 <div className="col-md-5 eventCard">
                   <div className="row innerEventCard">
-                    <p className="detailsSubheader">Location:</p>
+                    <p className="detailsSubheader">{item.venue}</p>                    
                     <p>{item.address}</p>
                     <p>{item.zip}</p>
+
+                    <img src="https://www.mapquestapi.com/staticmap/v5/map?locations=irvine+lake+ca&zoom=14&type=map&key=W9pxDBj1ipgcPfMKN4dnxOkpoPHpknHN" className="img-responsive" />
+                    { this.getMap(item.address, item.zip) }
                   </div>
                                   
                 </div>
@@ -162,6 +165,21 @@ class Home extends Component {
        })
       
     }
+  }
+
+  getMap(address, zipCode) {
+    // Piece together the API URL in order to display the static map. Return the URL
+    const mapquestKey = "W9pxDBj1ipgcPfMKN4dnxOkpoPHpknHN";
+    var url = "https://www.mapquestapi.com/staticmap/v5/map?key=" + mapquestKey;
+    url += "&type=map&zoom=16&size=@2x&locations=";
+
+    // Replace spaces with a plus sign
+    address = address.replace(/ /g, "+");
+    url += address + "+" + zipCode;
+
+    console.log(url);
+
+
   }
 
   displayAttendees(eventID) {

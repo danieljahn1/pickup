@@ -77,9 +77,9 @@ class EventList extends Component {
 
     render() { 
         return (
-            <div className="col-md-12 container">
-                <div className="col-md-12 container pull-right">
-                    <label htmlFor="selectFilter">Narrow my results:</label>
+            <div className="col-md-12 container" id="eventdetailsbg">
+                <div className="col-md-12 container-fluid pull-right">
+                    <label htmlFor="selectFilter" className="narrowResults">Narrow my events:</label>
                     <select name="filterResults" id="selectFilter" onChange={ (e) => this.setState({ filterBy: e.target.value }) }>
                         <option value="" disabled defaultValue hidden>Please Choose...</option>
                         <option>All Events</option>
@@ -128,26 +128,33 @@ class EventList extends Component {
             return <div className="col-md-8 eventCard">No events found.</div>
         }
 
-        return eventsArr.map( (item, index) =>
-            <div key={ index } className="col-md-8 eventCard">
-                <div className="row innerEventCard">
-                    <h4>{ item.event }</h4>
-                    <p>Category: { item.category }</p>
-                    <p>Date: { item.date }</p>                             
+        return eventsArr.map( (item, index) =>            
+            <div key={ index } className="col-md-12 eventCard">
+                <div className="col-md-1">
+                    <div className="row innerEventCard">
+                        <p>{ item.date }</p>
+                    </div>
                 </div>
-                <div className="row innerEventCard">                                
-                    <p className="detailsSubheader">Location:</p>
-                    <p>{ item.address }</p>
-                    <p>{ item.zip }</p>
+                <div className="col-md-6">                    
+                    <div className="row innerEventCard">
+                        <p className="eventCategory">{ item.category }</p>            
+                        <Link to={'/eventdetails/' + item.id}><h3 className="eventName divLink">{ item.event }</h3></Link>                                                  
+                    </div>
+                    <div className="row innerEventCard">                                
+                        <p>{ item.venue }</p>
+                    </div>
+                    <div className="row innerEventCard">
+                        <Link to={'/eventdetails/' + item.id}><button id="btnMoreInfo" className="btn btn-success">More Info</button></Link>                 
+                    </div>
                 </div>
-                <div className="row innerEventCard">                                
-                    <p className="detailsSubheader">Status: </p>
-                    { this.getEventStatus(item.id) }  {item.status}
+                <div className="col-md-3">
+                <div className="row innerEventCard">&nbsp;</div>
+                    <div className="row innerEventCard">
+                        <p className="detailsSubheader">Status: </p>
+                        { this.getEventStatus(item.id) }  {item.status}
+                    </div>
                 </div>
-                <div className="row innerEventCard">
-                    <Link to={'/eventdetails/' + item.id}><button id="btnMoreInfo" className="btn btn-success">More Info</button></Link>
-                    {/* <button id="btnJoin" className="btn btn-info btnPadding">Join the Game</button> */}                    
-                </div>
+                
             </div>
 
         )
@@ -173,7 +180,7 @@ class EventList extends Component {
         // if (eventIDCounter < eventCopy[0].maxPlayersNeeded) {
         if (eventCopy[0].maxPlayersNeeded > 0) {
             // console.log("Number of participants: " + eventIDCounter);
-            status = "Open";
+            status = "Open. " + eventIDCounter + " people playing.";
         }        
 
         // console.log("Number of participants: " + eventIDCounter);
