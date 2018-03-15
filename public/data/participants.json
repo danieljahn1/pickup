@@ -1,6 +1,10 @@
 {
 "participants" : [
 	{
+		"userId": 1003,
+		"eventID": 1
+	},
+	{
 		"userId": 1000,
 		"eventID": 1
 	},
@@ -91,6 +95,10 @@
 	{
 		"userId": 1004,
 		"eventID": 90001
+	},
+	{
+		"userId": 1002,
+		"eventID": 3
 	}
 ]
 }
