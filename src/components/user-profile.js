@@ -39,11 +39,11 @@ class UserProfile extends Component {
                                             </div>
                                             <div className="row">
                                                 <div className="col-md-6" style={{ marginLeft: '50px' }}>
-                                                    <span className="text-white">Gender: </span>{this.props.loggedInUser[0].gender}<br />
-                                                    <span className="text-white">Birthday: </span>{this.props.loggedInUser[0].dob}<br />
-                                                    <span className="text-white">Zip: </span>{this.props.loggedInUser[0].zip}<br />
-                                                    <span className="text-white">Email: </span>{this.props.loggedInUser[0].email}<br />
-                                                    <span className="text-white">Password: </span>************<br />
+                                                    <span>Gender: </span><b>{this.props.loggedInUser[0].gender}</b><br />
+                                                    <span>Birthday: </span><b>{this.props.loggedInUser[0].dob}</b><br />
+                                                    <span>Zip: </span><b>{this.props.loggedInUser[0].zip}</b><br />
+                                                    <span>Email: </span><b>{this.props.loggedInUser[0].email}</b><br />
+                                                    <span>Password: </span><b>************</b><br />
                                                 </div>
                                             </div>
                                         </div>
