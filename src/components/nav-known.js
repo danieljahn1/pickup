@@ -19,7 +19,7 @@ class NavKnown extends Component {
     render() {
         return (
             <nav className="col-md-6 pull-right nav-links">
-                <button type="button" className="btn btn-success pull-right" onClick={this.logout.bind(this)}>LOG OUT, {this.props.loggedInUser[0].email} ?</button>
+                <Link to="/"><button type="button" className="btn btn-success pull-right" onClick={this.logout.bind(this)}>LOG OUT, {this.props.loggedInUser[0].email} ?</button></Link>
                 <Link to="/userprofile"><button className="btn btn-warning pull-right">VIEW PROFILE</button></Link>
                 <Link to="/createevent"><button className="btn btn-warning pull-right">CREATE EVENTS</button></Link>
                 <Link to="/viewevents"><button className="btn btn-warning pull-right">VIEW EVENTS</button></Link>
