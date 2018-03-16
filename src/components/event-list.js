@@ -69,9 +69,9 @@ class EventList extends Component {
 
         return eventsArr.map( (item, index) =>            
             <div key={ index } className="col-md-12 eventCard">
-                <div className="col-md-1">
+                <div className="col-md-2">
                     <div className="row innerEventCard">
-                        <p>{ item.date }</p>
+                        <p>{ this.formatDate(item.date) }</p>
                     </div>
                 </div>
                 <div className="col-md-6">                    
@@ -125,6 +125,16 @@ class EventList extends Component {
         // console.log("Number of participants: " + eventIDCounter);
         return status;
         
+    }
+
+    formatDate(d) {
+        // Format the date from yyyy-mm-dd into MM/dd/yyyy for display
+        var year = d.substr(0,4);
+        var month = d.substr(5,2);
+        var day = d.substr(8,2)
+    
+        var date = month + '/' + day + '/' + year;
+        return date;       
     }
 
 }

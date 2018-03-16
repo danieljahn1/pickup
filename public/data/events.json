@@ -15,7 +15,7 @@
 	{
 	"id": "90001",
 	"event": "Beer Pong bro",
-	"date": "3/31/2018",
+	"date": "2018-03-31",
 	"venue": "The Auld Dubliner",
 	"address": "2497 Park Ave",
 	"zip": "92782",
@@ -27,7 +27,7 @@
 	{
 	"id": "90002",
 	"event": "Hockey team needs players",
-	"date": "4/1/2018",
+	"date": "2018-04-01",
 	"venue": "Anaheim Ice",
 	"address": "300 W Lincoln Ave",
 	"zip": "92805",
@@ -39,7 +39,7 @@
 	{
 	"id": "90003",
 	"event": "Walking club",
-	"date": "4/1/2018",
+	"date": "2018-04-14",
 	"venue": "Oak Canyon Park",
 	"address": "5305 E Santiago Canyon Rd",
 	"zip": "92676",
@@ -51,7 +51,7 @@
 	{
 	"id": "90004",
 	"event": "Ping pong doubles",
-	"date": "4/1/2018",
+	"date": "2018-03-31",
 	"venue": "Redwood Code Academy",
 	"address": "2850 Red Hill Ave #130",
 	"zip": "92705",
@@ -63,7 +63,7 @@
 	{
 	"id": "90005",
 	"event": "A long ride through the city",
-	"date": "4/14/2018",
+	"date": "2018-04-21",
 	"venue": "Fullerton Bicycles",
 	"address": "424 E Commonwealth Ave",
 	"zip": "92832",

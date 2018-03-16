@@ -36,7 +36,7 @@ const initialState = {
         {
             id: 13,
             name: 'Daniel Ahn',
-            dob: '',
+            dob: '2/28/1990',
             gender: 'Male',
             zip: '92804',
             email: 'djahn.shop@outlook.com',
@@ -111,7 +111,7 @@ const initialState = {
         {
             id: 1,
             event: "Pickup basketball",
-            date: "3/19/2018",
+            date: "2018-03-19",
             venue: "Quail Hill Community Park",
             address: "35 Shady Canyon Dr",
             zip: "92603",
@@ -123,7 +123,7 @@ const initialState = {
         {
             id: 2,
             event: "Flag football tournament",
-            date: "3/18/2018",
+            date: "2018-03-18",
             venue: "Orange County Great Park",
             address: "6950 Marine Way",
             zip: "92618",
@@ -135,7 +135,7 @@ const initialState = {
         {
             id: 3,
             event: "Golf money game",
-            date: "3/31/2018",
+            date: "2018-03-31",
             venue: "Oak Creek Golf Club",
             address: "1 Golf Club Dr",
             zip: "92618",

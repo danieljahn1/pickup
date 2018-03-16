@@ -129,7 +129,7 @@ class UserProfile extends Component {
             <div key={ index }>
                 <Link to={'/eventdetails/' + item.id}>
                 <div className="user-profile-signedup list-group col-md-12">
-                    <div className="col-md-2 user-profile-align">{ item.date }</div>
+                    <div className="col-md-2 user-profile-align">{ this.formatDate(item.date) }</div>
                     <div className="col-md-3">&nbsp;{item.category}</div>
                     <div className="col-md-7"> { item.event }.  { item.venue}</div>                
                 </div>
@@ -137,6 +137,16 @@ class UserProfile extends Component {
             </div>
         )
 
+    }
+
+    formatDate(d) {
+        // Format the date from yyyy-mm-dd into MM/dd/yyyy for display
+        var year = d.substr(0,4);
+        var month = d.substr(5,2);
+        var day = d.substr(8,2)
+    
+        var date = month + '/' + day + '/' + year;
+        return date;       
     }
 
 
