@@ -25,7 +25,6 @@ class Menu extends Component {
 const mapStateToProps = state => {
     return {
         loggedInUser: state.loggedInUser,
-        usersArr: state.usersArr,
     }
 }
 
