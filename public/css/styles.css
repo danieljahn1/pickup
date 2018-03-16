@@ -210,6 +210,35 @@ p.detailsSubheader {
   padding: 3px;
 }
 
+.user-profile-events {
+  color: white;
+  background: rgba(0,0,0,0.5);
+  margin-top: 20px;
+  padding: 20px 40px 50px 50px;
+  border-radius: 35px;
+}
+
+.user-profile-signedup {
+  margin: 2px 0;
+  border: 1px solid black;
+  background-color: rgba(255,255,255,0.8);
+  padding: 2px;
+  padding-left: 10px;
+  border-radius: 5px;
+}
+
+.user-profile-align {
+  text-align: right;
+}
+
+.user-profile-eventsjoined {
+  margin-bottom: 20px;
+}
+
+.user-profile-allevents {
+  border-top: 1px solid gainsboro;
+}
+
 /* End of EM styles */
 
 .nav-bar-div {
