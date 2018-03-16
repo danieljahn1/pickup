@@ -120,10 +120,8 @@ const initialState = {
             maxPlayersNeeded: 0,
             message: "Let's play skins for some minor money. Low to mid level handicaps."
         },
-        {
-            eventLastViewed: [],
-        },
-    ]
+    ],
+    eventLastViewed: [],
 }
 
 const rootReducer = (state = initialState, action) => {
@@ -190,6 +188,12 @@ const rootReducer = (state = initialState, action) => {
         state = {
             ... state,
             participants: action.payload
+        }
+    }
+    if (action.type == "JOIN_EVENT_ANON") {
+        state = {
+            ... state,
+            eventLastViewed: action.payload
         }
     }
     return state;

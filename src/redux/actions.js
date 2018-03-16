@@ -10,3 +10,5 @@ export const loadOtherParticipants = participants => ({ type: 'LOAD_OTHER_PARTIC
 export const updateEventsLoadFlag = flag => ({type: 'LOAD_EVENTS_FLAG', payload: flag })
 
 export const joinEvent = participants => ({ type: 'ADD_ATTENDEE', payload: participants })
+
+export const joinEventAnon = eventId => ({ type: 'JOIN_EVENT_ANON', payload: eventId })

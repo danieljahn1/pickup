@@ -6,6 +6,8 @@ import { Link, Redirect } from 'react-router-dom'
 
 import { joinEvent } from '../redux/actions'
 
+import { joinEventAnon } from '../redux/actions'
+
 class Home extends Component {
   constructor(props) {
     super(props);
@@ -28,7 +30,7 @@ class Home extends Component {
     const { redirect } = this.state;
     if (redirect) {
       // If the user is not logged in, redirect them to the signup page
-        return <Redirect to="/signup" />
+        return <Redirect to="/signin" />
     }
     return (
       <div className="col-md-12 container-fluid" id="eventdetailsbg">
@@ -171,6 +173,13 @@ class Home extends Component {
     }
     else {
       // User is not logged in. Redirect to sign up page
+      // Set eventId as lastEventViewed in redux
+
+      var eventLastViewedCopy = this.props.eventLastViewed.slice();
+      eventLastViewedCopy.splice(0,1,this.props.match.params.eventId);
+
+      this.props.setEventViewedFlag(eventLastViewedCopy);
+
       // console.log("Login the user");
       this.setState({ 
         redirect: true
@@ -260,13 +269,15 @@ const MapStateToProps = state => {
     events: state.events,
     participants: state.participants,
     usersArr: state.usersArr,
-    loggedInUser: state.loggedInUser
+    loggedInUser: state.loggedInUser,
+    eventLastViewed: state.eventLastViewed,
   }
 }
 
 const MapDispatchToProps = dispatch => {
   return {
-    addParticipant: attendee => dispatch(joinEvent(attendee))
+    addParticipant: attendee => dispatch(joinEvent(attendee)),
+    setEventViewedFlag: eventId => dispatch(joinEventAnon(eventId)),
   }
 }
 
