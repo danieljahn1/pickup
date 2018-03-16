@@ -276,3 +276,10 @@ p.detailsSubheader {
 .welcome-create-event {
   background: rgba(0,0,0,0.5);
 }
+
+.user-profile {
+  color: white;
+  background: rgba(0,0,0,0.5);
+  padding: 20px 40px 50px 50px;
+  border-radius: 35px;
+}

@@ -17,13 +17,13 @@ class UserProfile extends Component {
 
     render() {
         return (
-            <div className="App">
+            <div>
                 {/* <Profile person={this.state.person} /> */}
                 <div className="container">
                     <div className="row">
                         <div className="col-md-9">
-                            <div className="panel panel-default">
-                                <div className="panel-body">
+                            <div className="">
+                                <div className="user-profile">
                                     <div className="row">
                                         <div className="col-md-12 lead">Your Profile</div>
                                     </div>
@@ -39,11 +39,11 @@ class UserProfile extends Component {
                                             </div>
                                             <div className="row">
                                                 <div className="col-md-6">
-                                                    <span className="text-muted">Gender: </span>{this.props.loggedInUser[0].gender}<br />
-                                                    <span className="text-muted">Birthday:</span>{this.props.loggedInUser[0].dob}<br />
-                                                    <span className="text-muted">Zip:</span>{this.props.loggedInUser[0].zip}<br />
-                                                    <span className="text-muted">Email:</span>{this.props.loggedInUser[0].email}<br />
-                                                    <span className="text-muted">Password:</span>{this.props.loggedInUser[0].password}<br />
+                                                    <span className="text-white">Gender: </span>{this.props.loggedInUser[0].gender}<br />
+                                                    <span className="text-white">Birthday: </span>{this.props.loggedInUser[0].dob}<br />
+                                                    <span className="text-white">Zip: </span>{this.props.loggedInUser[0].zip}<br />
+                                                    <span className="text-white">Email: </span>{this.props.loggedInUser[0].email}<br />
+                                                    <span className="text-white">Password: </span>************<br />
                                                 </div>
                                             </div>
                                         </div>
@@ -59,8 +59,7 @@ class UserProfile extends Component {
                     </div>
                 </div>
             </div>
-
-        );
+        )
     }
 }
 const mapStateToProps = state => {
