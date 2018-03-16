@@ -50,7 +50,7 @@ class UserProfile extends Component {
                                     </div>
                                     <div className="row">
                                         <div className="col-md-12">
-                                            <button className="btn btn-default pull-right"><i className="glyphicon glyphicon-pencil"></i> Edit</button>
+                                            {/* <button className="btn btn-default pull-right"><i className="glyphicon glyphicon-pencil"></i> Edit</button> */}
                                         </div>
                                     </div>
                                 </div>
