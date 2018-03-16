@@ -18,7 +18,7 @@ class Welcome extends Component {
                     <Link to="/viewevents"><button className="btn btn-success btn-lg pull-right">Find Events To Join</button></Link>
                 </div>
                 <div className="col-md-10 pull-left welcome welcome-create-event">
-                    <p className="lead home-message" >Have an awesome idea for an event? Looking to broaden your skills with new competition? Creating an event can not only help your event planning abilities, but extends your circle of sports friends. Try starting an event and see how god you really are!</p>     <Link to="/createevent"><button className="btn btn-warning btn-lg pull-right">Start A New Event</button></Link>
+                    <p className="lead home-message" >Have an awesome idea for an event? Looking to broaden your skills with new competition? Creating an event can not only help your event planning abilities, but extends your circle of sports friends. Try starting an event and see how good you really are!</p>     <Link to="/createevent"><button className="btn btn-warning btn-lg pull-right">Start A New Event</button></Link>
                 </div>
             </div>
         )
