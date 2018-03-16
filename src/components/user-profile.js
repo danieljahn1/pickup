@@ -29,7 +29,7 @@ class UserProfile extends Component {
                                     </div>
                                     <div className="row">
                                         <div className="col-md-4 text-center">
-                                            <img className="img-circle avatar avatar-original" src={this.props.loggedInUser[0].imageurl} style={{ width: '200px' }} />
+                                            <img className="img-circle avatar avatar-original" src={this.props.loggedInUser[0].imageurl} style={{ width: '100px' }} />
                                         </div>
                                         <div className="col-md-8">
                                             <div className="row">
