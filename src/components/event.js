@@ -46,7 +46,7 @@ class Home extends Component {
               <div className="col-md-12" key={index}>
                 <div className="col-md-6 eventdetail-left">
                   <div className="row innerEventCard">
-                    <h4>{item.date}</h4>
+                    <h4>{ this.formatDate(item.date) }</h4>
                     <h4>{item.event}</h4>
                     {/* <p>Category: {item.category}</p> */}
                     
@@ -282,6 +282,16 @@ class Home extends Component {
           { item.name }        
         </div>
     )
+  }
+
+  formatDate(d) {
+    // Format the date from yyyy-mm-dd into MM/dd/yyyy for display
+    var year = d.substr(0,4);
+    var month = d.substr(5,2);
+    var day = d.substr(8,2)
+
+    var date = month + '/' + day + '/' + year;
+    return date;       
   }
 
 }

@@ -149,7 +149,6 @@ class UserProfile extends Component {
         return date;       
     }
 
-
 }
 const mapStateToProps = state => {
     return {
