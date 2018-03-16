@@ -9,7 +9,6 @@ import Welcome from './welcome'
 import EventCreate from './event-create'
 import EventList from './event-list'
 import Event from './event'
-import TestRedux from './testredux'
 import UserProfile from './user-profile'
 
 
