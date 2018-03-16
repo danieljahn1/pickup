@@ -40,11 +40,19 @@ class SignUp extends Component {
         }
     }
 
+    joinEventUrl() {
+        var url = "/eventdetails/" + this.props.eventLastViewed;
+        return url
+    }
+
     render() {
         const { redirect } = this.state;
-        if (redirect) {
-            return <Redirect to="/welcome" />
-        }
+        if (redirect && this.props.eventLastViewed.length != 0) {
+            return <Redirect to={this.joinEventUrl()} />
+            } else if (redirect) {
+                return <Redirect to="/welcome" />
+            }
+
         return (
             <div className="col-md-6 forms">
                 <h2>Join in on the action now!</h2>
@@ -92,6 +100,7 @@ class SignUp extends Component {
 const mapStateToProps = state => {
     return {
         usersArr: state.usersArr,
+        eventLastViewed: state.eventLastViewed,
     }
 }
 

@@ -6,6 +6,8 @@ import { Link, Redirect } from 'react-router-dom'
 
 import { joinEvent } from '../redux/actions'
 
+import { joinEventAnon } from '../redux/actions'
+
 class Home extends Component {
   constructor(props) {
     super(props);
@@ -28,7 +30,7 @@ class Home extends Component {
     const { redirect } = this.state;
     if (redirect) {
       // If the user is not logged in, redirect them to the signup page
-        return <Redirect to="/signup" />
+        return <Redirect to="/signin" />
     }
     return (
       <div className="col-md-12 container-fluid" id="eventdetailsbg">
@@ -65,6 +67,10 @@ class Home extends Component {
                     <button id="btnJoin" className="btn btn-success btnPadding" disabled={this.state.joinButtonDisabled} onClick={ this.submitJoinEvent.bind(this) }>
                       Join the Event
                     </button>
+                  </div>
+                  <div className="row innerEventCard">
+                    <p className="organizerHeader organizer">Organizer:</p>
+                    <p>{ this.getOrganizer(item.id) }</p>
                   </div>
                 </div>
                 
@@ -171,6 +177,13 @@ class Home extends Component {
     }
     else {
       // User is not logged in. Redirect to sign up page
+      // Set eventId as lastEventViewed in redux
+
+      var eventLastViewedCopy = this.props.eventLastViewed.slice();
+      eventLastViewedCopy.splice(0,1,this.props.match.params.eventId);
+
+      this.props.setEventViewedFlag(eventLastViewedCopy);
+
       // console.log("Login the user");
       this.setState({ 
         redirect: true
@@ -195,7 +208,7 @@ class Home extends Component {
             players.push(usersArrCopy[0]);            
         }
     }
-    console.log(players);
+    // console.log(players);
     
     // Create the participating players' cards
     if (players.length == 0) {
@@ -253,6 +266,24 @@ class Home extends Component {
       
   }
 
+  getOrganizer(eventID) {
+    // Get the organizer from redux
+    var organizerID = this.props.organizers.filter( item => item.eventID == eventID  );
+    // console.log("organizer: ", organizerID[0].userId);
+
+    // Once you have the organizer's userID, get the user from the usersArr and display
+    var organizerUser = this.props.usersArr.filter( item => item.id == organizerID[0].userId );
+    // console.log("organizer: ", organizerUser);
+
+    return organizerUser.map ( (item, index) =>
+        <div className="col-md-4 row organizerCard" key={index}>
+          {/* <img src="../../images/anon-player.jpg" width="75" className="img-circle img-responsive" /> */}
+          <img src={ item.imageurl } width="75" className="img-circle img-responsive playersImage" />
+          { item.name }        
+        </div>
+    )
+  }
+
 }
 
 const MapStateToProps = state => {
@@ -260,13 +291,16 @@ const MapStateToProps = state => {
     events: state.events,
     participants: state.participants,
     usersArr: state.usersArr,
-    loggedInUser: state.loggedInUser
+    loggedInUser: state.loggedInUser,
+    eventLastViewed: state.eventLastViewed,
+    organizers: state.organizers
   }
 }
 
 const MapDispatchToProps = dispatch => {
   return {
-    addParticipant: attendee => dispatch(joinEvent(attendee))
+    addParticipant: attendee => dispatch(joinEvent(attendee)),
+    setEventViewedFlag: eventId => dispatch(joinEventAnon(eventId)),
   }
 }
 
