@@ -18,6 +18,7 @@ class SignUp extends Component {
             addZip: '',
             addEmail: '',
             addPassword: '',
+            imageurl: '',
             redirect: false,
         }
     }
@@ -33,6 +34,7 @@ class SignUp extends Component {
                 zip: this.state.addZip,
                 email: this.state.addEmail,
                 password: this.state.addPassword,
+                imageurl: '../../images/anon-player.jpg'
             })
             this.props.createNewUserRedux(usersArrCopy);
             this.props.logInNewUserRedux(usersArrCopy);
