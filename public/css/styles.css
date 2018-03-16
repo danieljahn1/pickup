@@ -256,14 +256,14 @@ p.detailsSubheader {
 }
 
 .welcome {
-  margin-bottom: 50px;
+  margin-bottom: 60px;
   color: white;
   padding: 30px 50px 50px 50px;
   border-radius: 35px;
 }
 
 .welcome-user {
-  margin-top: 50px;
+  margin-top: 25px;
   background: rgba(255,140,0,0.5);
   text-align: center;
 }
