@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Profile from './profile'
-import SignUp from './signup'
+// import Profile from './profile';
+import SignUp from './sign-up'
 // import Profile from './profile'
 import { connect } from 'react-redux'
 
