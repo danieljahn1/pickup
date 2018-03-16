@@ -33,12 +33,12 @@ class UserProfile extends Component {
                                         </div>
                                         <div className="col-md-8">
                                             <div className="row">
-                                                <div className="col-md-12">
+                                                <div className="col-md-12" style={{ marginLeft: '50px' }}>
                                                     <h1 className="only-bottom-margin">{this.props.loggedInUser[0].name}</h1>
                                                 </div>
                                             </div>
                                             <div className="row">
-                                                <div className="col-md-6">
+                                                <div className="col-md-6" style={{ marginLeft: '50px' }}>
                                                     <span className="text-white">Gender: </span>{this.props.loggedInUser[0].gender}<br />
                                                     <span className="text-white">Birthday: </span>{this.props.loggedInUser[0].dob}<br />
                                                     <span className="text-white">Zip: </span>{this.props.loggedInUser[0].zip}<br />
