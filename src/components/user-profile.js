@@ -1,5 +1,4 @@
-import React, { Component } from 'react';
-// import Profile from './profile'
+import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 class UserProfile extends Component {
@@ -13,9 +12,9 @@ class UserProfile extends Component {
                 location: '',
                 image: '',
             }
-
-        };
+        }
     }
+
     render() {
         return (
             <div className="App">
@@ -26,11 +25,11 @@ class UserProfile extends Component {
                             <div className="panel panel-default">
                                 <div className="panel-body">
                                     <div className="row">
-                                        <div className="col-md-12 lead">YNour Profile</div>
+                                        <div className="col-md-12 lead">Your Profile</div>
                                     </div>
                                     <div className="row">
                                         <div className="col-md-4 text-center">
-                                            <img className="img-circle avatar avatar-original"  src="http://robohash.org/sitsequiquia.png?size=120x120" />
+                                            <img className="img-circle avatar avatar-original" src={this.props.loggedInUser[0].imageurl} style={{ width: '200px' }} />
                                         </div>
                                         <div className="col-md-8">
                                             <div className="row">
@@ -40,9 +39,11 @@ class UserProfile extends Component {
                                             </div>
                                             <div className="row">
                                                 <div className="col-md-6">
-                                                    <span className="text-muted">Gender: </span>{this.props.loggedInUser[0].gender}<br/>
-                                                            <span className="text-muted">Birthday:</span>{this.props.loggedInUser[0].dob}<br/> 
-                                                                <span className="text-muted">Zip:</span>{this.props.loggedInUser[0].zip}<br/>
+                                                    <span className="text-muted">Gender: </span>{this.props.loggedInUser[0].gender}<br />
+                                                    <span className="text-muted">Birthday:</span>{this.props.loggedInUser[0].dob}<br />
+                                                    <span className="text-muted">Zip:</span>{this.props.loggedInUser[0].zip}<br />
+                                                    <span className="text-muted">Email:</span>{this.props.loggedInUser[0].email}<br />
+                                                    <span className="text-muted">Password:</span>{this.props.loggedInUser[0].password}<br />
                                                 </div>
                                             </div>
                                         </div>
@@ -68,4 +69,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect (mapStateToProps) (UserProfile);
+export default connect(mapStateToProps)(UserProfile)
