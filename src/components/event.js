@@ -68,6 +68,10 @@ class Home extends Component {
                       Join the Event
                     </button>
                   </div>
+                  <div className="row innerEventCard">
+                    <p className="organizerHeader organizer">Organizer:</p>
+                    <p>{ this.getOrganizer(item.id) }</p>
+                  </div>
                 </div>
                 
                 <div className="col-md-4 eventCard">
@@ -204,7 +208,7 @@ class Home extends Component {
             players.push(usersArrCopy[0]);            
         }
     }
-    console.log(players);
+    // console.log(players);
     
     // Create the participating players' cards
     if (players.length == 0) {
@@ -262,6 +266,24 @@ class Home extends Component {
       
   }
 
+  getOrganizer(eventID) {
+    // Get the organizer from redux
+    var organizerID = this.props.organizers.filter( item => item.eventID == eventID  );
+    // console.log("organizer: ", organizerID[0].userId);
+
+    // Once you have the organizer's userID, get the user from the usersArr and display
+    var organizerUser = this.props.usersArr.filter( item => item.id == organizerID[0].userId );
+    // console.log("organizer: ", organizerUser);
+
+    return organizerUser.map ( (item, index) =>
+        <div className="col-md-4 row organizerCard" key={index}>
+          {/* <img src="../../images/anon-player.jpg" width="75" className="img-circle img-responsive" /> */}
+          <img src={ item.imageurl } width="75" className="img-circle img-responsive playersImage" />
+          { item.name }        
+        </div>
+    )
+  }
+
 }
 
 const MapStateToProps = state => {
@@ -271,6 +293,7 @@ const MapStateToProps = state => {
     usersArr: state.usersArr,
     loggedInUser: state.loggedInUser,
     eventLastViewed: state.eventLastViewed,
+    organizers: state.organizers
   }
 }
 

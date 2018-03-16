@@ -93,6 +93,19 @@ p.message {
   margin-bottom: 15px;
 }
 
+p.organizer {
+  margin-top: 10px;
+  
+}
+
+p.organizerHeader {
+  margin-top: 10px;
+  font-weight: bold;
+  margin-bottom: 2px;
+  border-top: 1px solid lightgrey;
+}
+
+
 p.detailsSubheader {
   font-weight: bold;
   margin-bottom: 2px;
@@ -139,6 +152,15 @@ p.detailsSubheader {
   margin: 25px;
   padding: 3px;
   height: 100px;
+  text-align: center;
+  border-radius: 5px;
+}
+
+.organizerCard {
+  background-color: #fff;
+  /* border: 1px solid black; */
+  margin: 5px 0;
+  padding: 3px;
   text-align: center;
   border-radius: 5px;
 }

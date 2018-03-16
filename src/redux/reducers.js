@@ -11,7 +11,7 @@ const initialState = {
             zip: '92689',
             email: 'aanderson@email.com',
             password: 'abc123',
-            imageurl: 'http://www.findthatlogo.com/wp-content/gallery/nfl-san-francisco-49ers-logos/san-francisco-49ers-logo.gif'
+            imageurl: 'http://nflshop.frgimages.com/FFImage/thumb.aspx?i=/productImages%2F_633000%2Fff_633362_full.jpg&w=600'
         },
         {
             id: 11,
@@ -21,7 +21,7 @@ const initialState = {
             zip: '92868',
             email: 'laguilar@email.com',
             password: 'abc123',
-            imageurl: 'https://www.cycleworld.com/sites/cycleworld.com/files/styles/325_4x3/public/images/2018/03/2.-cal_crutchlow_teaser.jpg?itok=rUP3co2T&fc=50,50'
+            imageurl: 'https://i.pinimg.com/736x/5e/60/0e/5e600e5c89a24460ad6b70cfe7e96564.jpg'
         },
         {
             id: 12,
@@ -46,34 +46,58 @@ const initialState = {
     ],
     organizers: [
         {
-            userId: 13,
-            eventID: 2
-        }
-    ],
-    participants: [
-        {
             userId: 10,
             eventID: 1
         },
         {
-            userId: 11,
-            eventID: 1
+            userId: 13,
+            eventID: 2
         },
         {
             userId: 12,
             eventID: 3
         },
         {
+            userId: 1002,
+            eventID: 90000
+        },
+        {
+            userId: 1003,
+            eventID: 90001
+        },
+        {
+            userId: 1004,
+            eventID: 90002
+        },
+        {
+            userId: 1004,
+            eventID: 90003
+        },
+        {
+            userId: 1003,
+            eventID: 90004
+        },
+        {
+            userId: 11,
+            eventID: 90005
+        }
+    ],
+    participants: [
+        // {
+        //     userId: 10,
+        //     eventID: 1
+        // },
+        {
+            userId: 11,
+            eventID: 1
+        },
+        {
             userId: 12,
             eventID: 90002
         },
         {
             userId: 11,
             eventID: 90002
-        },
-        {
-            userId: 13,
-            eventID: 2
         }
     ],
     // testRedux: [
