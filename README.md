@@ -1,24 +1,34 @@
 # Pickup Project
 RCA Project 03 - Team LEAD's PickUp Web App
 
-## About
+### About
 PickUp is the site that allows people to find or create events to play in for their favorite sports. The intent is to create a social gathering for individuals of similar backgrounds and interests to meet other people and partake in friendly competition.
 
-PickUp was created using React JS and Redux.
-
-### Sign Up
-A user must have an account in order to join or create an event. The sign in page can be accessed on the home page or in the navigation menu.
+PickUp was created using CSS, Bootstrap, React JS and Redux.
 
 
+### Installation and Setup
+------
+#### Clone
+* Clone this repo to your machine using ``` https://github.com/danieljahn1/pickup.git  ```. You will need ``` npm ``` installed globally on your machine.
 
-### View Events
+#### Setup
+* Run npm install ``` npm install ```
 
-#### View Event Details
+* Start the server:  ``` npm start ```
 
-###  Sign In
+* To visit the app:  ``` http://localhost:8080/ ```
 
-### View Profile
 
-### Redux
+### Documentation
+------
+Visit the Wiki at https://github.com/danieljahn1/pickup/wiki
 
-* 
+
+### Team
+------
+Team LEAD: https://github.com/danieljahn1/pickup/graphs/contributors
+* lewi5: https://github.com/lewi5
+* e-masinas: https://github.com/e-masinas
+* Aanderson1986: https://github.com/Aanderson1986
+* danieljahn1: https://github.com/danieljahn1
