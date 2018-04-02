@@ -39,7 +39,7 @@ const initialState = {
             dob: '2/28/1990',
             gender: 'Male',
             zip: '92804',
-            email: 'djahn.shop@outlook.com',
+            email: 'dahn@email.com',
             password: 'abc123',
             imageurl: 'https://cdn.bleacherreport.net/images/team_logos/328x328/detroit_lions.png'
         }
@@ -167,25 +167,23 @@ const rootReducer = (state = initialState, action) => {
             usersArr: state.usersArr.concat(action.payload)
         }
     }
-    if (action.type == "USER_AUTH") {
+    if (action.type == "USER_LOG_IN") {
         state = {
             ...state,
-            // loggedInUser: state.loggedInUser.splice(0,1,action.payload)
             loggedInUser: action.payload
         }
     }
-    if (action.type == "USER_LOG_IN") {
-        state - {
-            ...state,
-            loggedInUser: action.payload
-        }
-    }
-
     if (action.type == "USER_LOG_OUT") {
         state = {
             ...state,
             // loggedInUser: state.loggedInUser.splice(0,1,action.payload)
             loggedInUser: action.payload
+        }
+    }
+    if (action.type == "USER_UPDATE") {
+        state = {
+            ...state,
+            usersArr: action.payload
         }
     }
     if (action.type == "LOAD_EVENTS") {
