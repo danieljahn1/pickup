@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Link, Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { userAuth } from '../redux/actions'
+import { userLogIn } from '../redux/actions'
 
 
 class SignIn extends Component {
@@ -82,7 +82,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        sendToRedux: logInUser => dispatch(userAuth(logInUser)),
+        sendToRedux: logInUser => dispatch(userLogIn(logInUser)),
     }
 }
 

@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Link, Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { userCreate } from '../redux/actions'
-import { userAuth } from '../redux/actions'
+import { userLogIn } from '../redux/actions'
 import uniqid from 'uniqid'
 
 
@@ -109,7 +109,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         createNewUserRedux: newUser => dispatch(userCreate(newUser)),
-        logInNewUserRedux: newUser => dispatch(userAuth(newUser)),
+        logInNewUserRedux: newUser => dispatch(userLogIn(newUser)),
     }
 }
 
