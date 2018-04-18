@@ -8,6 +8,9 @@ import { joinEvent } from '../redux/actions'
 
 import { joinEventAnon } from '../redux/actions'
 
+import MAPQUEST_KEY from '../../config.js'
+
+
 class Home extends Component {
   constructor(props) {
     super(props);
@@ -100,8 +103,9 @@ class Home extends Component {
 
   getMap(address, zipCode) {
     // Piece together the API URL in order to display the static map. Return the URL
-    const mapquestKey = "W9pxDBj1ipgcPfMKN4dnxOkpoPHpknHN";
-    var url = "https://www.mapquestapi.com/staticmap/v5/map?key=" + mapquestKey;
+
+
+    var url = "https://www.mapquestapi.com/staticmap/v5/map?key=" + MAPQUEST_KEY;
     url += "&type=map&zoom=16&size=@2x&locations=";
 
     // Replace spaces with a plus sign
